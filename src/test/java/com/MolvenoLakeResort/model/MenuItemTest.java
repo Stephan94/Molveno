@@ -11,10 +11,6 @@ public class MenuItemTest {
 
     //ZET DE CONSTRUCTOR BOVEN AAN ZODAT HET VOOR ALLE TESTS GELDT
     //DIT IS EEN FIELD
-    @Before
-    public void SetUp() {
-        this.ingredient = new Ingredient();
-    }
 
     @Test
     public void testSetAndGetForIngredient() {
