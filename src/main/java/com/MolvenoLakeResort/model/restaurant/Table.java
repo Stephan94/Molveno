@@ -10,12 +10,11 @@ public class Table {
     public Table(int tableID, int capacity){
         this.tableID = tableID;
         this.capacity = capacity;
-
     }
 
     // getter TableID
     public int getTableID() {
-        return tableID;
+        return this.tableID;
     }
 
     // setter TableID
@@ -25,7 +24,7 @@ public class Table {
 
     // getter Capacity
     public int getCapacity() {
-        return capacity;
+        return this.capacity;
     }
 
     //setter Capacity
