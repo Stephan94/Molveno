@@ -12,16 +12,12 @@ public class BookingTest {
 
     @Before
     public void setUp(){
-        booking = new Booking(315,LocalDateTime.of(2018,8,2,14,0), LocalDateTime.of(2018,8,7,14,0), 2);
+        booking = new Booking(LocalDateTime.of(2018,8,2,14,0), LocalDateTime.of(2018,8,7,14,0), 2);
     }
 
     @Test
     public void testSetAndGetForID(){
 
     }
-
-
-
-
 
 }

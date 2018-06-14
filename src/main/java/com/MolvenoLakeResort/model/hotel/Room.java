@@ -39,6 +39,7 @@ public class Room {
     }
 
     public Room(int capacity, double price, String type) {
+
         this.capacity = capacity;
         this.price = price;
         this.type = type;
