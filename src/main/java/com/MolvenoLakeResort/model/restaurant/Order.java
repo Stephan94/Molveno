@@ -1,5 +1,7 @@
 package com.MolvenoLakeResort.model.restaurant;
 
+import java.util.Date;
+
 public class Order {
 
     private int ID;
