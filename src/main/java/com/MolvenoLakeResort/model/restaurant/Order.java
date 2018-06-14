@@ -14,10 +14,12 @@ public class Order {
 
     //for unit testing
     public void setTotalOrderCost (double totalOrderCost){
+
         this.totalOrderCost = totalOrderCost;
     }
 
-    public double setTotalOrderCost (){
+    public double getTotalOrderCost (){
+
         return this.totalOrderCost;
     }
 
