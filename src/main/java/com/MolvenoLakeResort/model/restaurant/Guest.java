@@ -6,8 +6,8 @@ public class Guest extends User{
 
     private Date dateOfBirth;
 
-    public Guest(String name) {
-        super(name);
+    public Guest(String firstName, String lastName) {
+        super(firstName, lastName);
     }
 
     public Date getDateOfBirth() {

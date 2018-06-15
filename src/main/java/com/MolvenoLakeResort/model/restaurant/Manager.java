@@ -4,7 +4,7 @@ public class Manager extends User {
 
     //TODO specific functionality
 
-    public Manager(String name) {
-        super(name);
+    public Manager(String firstName, String lastName) {
+        super(firstName, lastName);
     }
 }

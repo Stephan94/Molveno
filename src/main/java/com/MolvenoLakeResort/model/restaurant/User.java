@@ -4,10 +4,12 @@ public class User {
 
 
     private int id;
-    private String name;
+    private String firstName;
+    private String lastName;
 
-    public User(String name) {
-        this.name = name;
+    public User(String firstName, String lastName ) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public int getId() {
@@ -18,11 +20,19 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return this.name;
+    public String getFirstName() {
+        return this.firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
