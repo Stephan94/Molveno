@@ -1,4 +1,4 @@
-package com.MolvenoLakeResort.model;
+package com.MolvenoLakeResort.model.restaurant;
 
 import com.MolvenoLakeResort.model.restaurant.Ingredient;
 import org.junit.Assert;

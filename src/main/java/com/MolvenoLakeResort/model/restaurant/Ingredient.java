@@ -9,15 +9,11 @@ public class Ingredient {
 
     // add constructor
 
-
+    
     public Ingredient(String name, int id, double price) {
         this.name = name;
         this.id = id;
         this.price = price;
-    }
-
-    public Ingredient() {
-
     }
 
 
