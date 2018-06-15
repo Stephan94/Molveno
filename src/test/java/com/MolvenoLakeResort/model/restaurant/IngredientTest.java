@@ -5,18 +5,26 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MenuItemTest {
+public class IngredientTest {
 
     private Ingredient ingredient;
 
     //ZET DE CONSTRUCTOR BOVEN AAN ZODAT HET VOOR ALLE TESTS GELDT
     //DIT IS EEN FIELD
 
+
+
+    @Before
+    public void setUp(){
+        this.ingredient = new Ingredient("sugar", 222, 1.50);
+    }
+
+
     @Test
     public void testSetAndGetForIngredient() {
 
 
-        this.ingredient.setPrice(2.00);
+        this.ingredient.setPrice(2.0);
 
         double actual = this.ingredient.getPrice();
 
