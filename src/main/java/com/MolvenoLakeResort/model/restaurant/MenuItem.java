@@ -10,7 +10,7 @@ public class MenuItem {
     private String menuId;
     private double actualPrice;
     private double suggestedPrice;
-
+    private String allergies;
 
 // add constructor
 
