@@ -1,5 +1,6 @@
 package com.MolvenoLakeResort.model.hotel;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,7 +18,9 @@ public class BookingTest {
 
     @Test
     public void testSetAndGetForID(){
-
+        this.booking.setID(5);
+        int actual = this.booking.getID();
+        Assert.assertEquals(5, actual);
     }
 
 }

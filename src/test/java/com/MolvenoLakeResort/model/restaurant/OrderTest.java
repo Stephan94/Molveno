@@ -18,8 +18,6 @@ public class OrderTest {
     @Test
     public void testSetAndGetForTotalOrderCost(){
 
-        this.order = new Order();
-
         this.order.setTotalOrderCost(3.25);
 
         Assert.assertEquals(3.25, order.getTotalOrderCost(), 0);
