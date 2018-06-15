@@ -2,6 +2,8 @@ package com.MolvenoLakeResort.model.hotel;
 
 public class Room {
 
+    //TODO: nog n hoop
+
     private int ID;
 
     private int capacity;
