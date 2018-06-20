@@ -1,9 +1,12 @@
 package com.MolvenoLakeResort;
 
-public class App 
+import com.MolvenoLakeResort.controller.AppController;
+
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        AppController app = new AppController();
+        app.run();
     }
 }
