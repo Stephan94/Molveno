@@ -1,5 +1,7 @@
 package com.MolvenoLakeResort.model.restaurant;
 
+import java.util.Objects;
+
 public class Table {
 
     //properties
@@ -32,4 +34,17 @@ public class Table {
         this.capacity = capacity;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Table table = (Table) o;
+        return tableID == table.tableID;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(tableID);
+    }
 }

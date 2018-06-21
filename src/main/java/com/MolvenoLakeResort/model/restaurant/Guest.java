@@ -1,20 +1,23 @@
 package com.MolvenoLakeResort.model.restaurant;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-public class Guest extends User{
+public class Guest extends User {
 
-    private Date dateOfBirth;
+
+    private LocalDate dateOfBirth;
 
     public Guest(String firstName, String lastName) {
         super(firstName, lastName);
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
 }
+

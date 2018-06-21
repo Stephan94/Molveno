@@ -1,12 +1,20 @@
 package com.MolvenoLakeResort.model.restaurant;
 
+import javafx.scene.control.Tab;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Restaurant {
 
+    // Fields
+    private List<Booking> bookingsList = new LinkedList<>();
     private List<Table> tables = new ArrayList<>();
 
+
+    // Constructor
     public Restaurant() {
         this.tables.add(new Table(1, 2));
         this.tables.add(new Table(2, 4));
@@ -19,12 +27,74 @@ public class Restaurant {
         this.tables.add(new Table(9, 2));
         this.tables.add(new Table(10, 2));
         this.tables.add(new Table(11, 4));
+
+        this.bookingsList.add(new Booking(new Guest("Arjan","Tammer"),new Table(1,2), LocalDate.of(2018,6,21)));
+        //this.bookingsList.add(new Booking(new Guest("Arjan","Tammer"), this.tables.get(2),LocalDate.of(2018,6,22)  ));
+
     }
 
 
+    // protected List<Booking> showAllBooking(){
 
+
+    //  }
+
+
+    public List<Table> showAllAvailableTables() {
+
+        boolean available;
+
+        List<Table> availableTables = new ArrayList<>();
+
+
+
+        for (Table table : this.getTables()) {
+
+            //for (Booking element : bookingsList) {
+            //    System.out.println("test3");
+//            if (bookingsList.contains(table)){
+
+            Booking searchFor = new Booking(null, table, null);
+
+            if (bookingsList.contains(searchFor)){
+
+
+//                if (element.getTable().equals(table)) {
+                    System.out.println("Table already booked");
+                } else {
+                    availableTables.add(table);
+//                    System.out.println("Table "+ table.getTableID() + " is available");
+//
+
+//                System.out.println("Table " + table.getTableID() + " added to list");
+
+            }
+        }
+
+
+        return availableTables;
+
+    }
+
+
+    public List<Table> getTables() {
+        return this.tables;
+    }
+
+    public void setTables(List<Table> tables) {
+        this.tables = tables;
+    }
 }
 
 
+/**
+ * Give boolean to available
+ * Check if boolean is false/true
+ * then add false to a new list
+ * <p>
+ * if not booked then
+ * <p>
+ * List<Table> availableTables = Restaurant.tables();
+ */
 
 
