@@ -76,7 +76,7 @@ public class Restaurant {
         for (Table table: availableTables){
 
         }
-
+        return availableTablesBySearch;
     }
 
 
