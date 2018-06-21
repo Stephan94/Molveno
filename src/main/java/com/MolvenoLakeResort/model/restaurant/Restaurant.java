@@ -57,6 +57,17 @@ public class Restaurant {
 
     }
 
+    public List<Table> SearchTableByTimeAndCapacity(int capacity, List<Table> availableTables){
+
+        //A list to store the results of search
+        List<Table> availableTablesBySearch = new ArrayList<>();
+
+        for (Table table: availableTables){
+
+        }
+
+    }
+
 
     public List<Table> getTables() {
         return this.tables;
