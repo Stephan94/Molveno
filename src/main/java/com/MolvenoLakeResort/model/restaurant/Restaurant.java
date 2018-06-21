@@ -37,7 +37,6 @@ public class Restaurant {
 
     public List<Table> showAllAvailableTables() {
 
-        boolean available;
 
         List<Table> availableTables = new ArrayList<>();
 

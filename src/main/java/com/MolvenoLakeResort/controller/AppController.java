@@ -1,12 +1,13 @@
 package com.MolvenoLakeResort.controller;
 
 import com.MolvenoLakeResort.model.restaurant.Restaurant;
+import com.MolvenoLakeResort.model.restaurant.Table;
 
 import java.util.Scanner;
 
 public class AppController {
 
-    private Restaurant restaurant = new Restaurant();
+    private Restaurant molveno = new Restaurant();
     private boolean state = true;
 
 
@@ -18,7 +19,7 @@ public class AppController {
 
 
     private int showMainMenu() {
-        System.out.println("option 1");
+        System.out.println("1: show all available tables");
         System.out.println("9: Exit");
 
         int choice = this.takeInput();
@@ -26,9 +27,13 @@ public class AppController {
         return choice;
     }
 
+
+
     private void interpreter(int choice) {
         if (choice == 1 ){
-            System.out.println("You chose 1");
+            for (Table table : molveno.showAllAvailableTables()) {
+                System.out.println("Table " + table.getID() + " is available");
+            }
         } else if (choice == 9 ) {
             this.quit();
         }
