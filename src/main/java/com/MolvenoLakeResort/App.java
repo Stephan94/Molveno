@@ -1,6 +1,5 @@
 package com.MolvenoLakeResort;
 
-import com.MolvenoLakeResort.model.restaurant.Booking;
 import com.MolvenoLakeResort.model.restaurant.Restaurant;
 import com.MolvenoLakeResort.model.restaurant.Table;
 
@@ -10,7 +9,7 @@ public class App {
         Restaurant molveno = new Restaurant();
 
         for (Table table : molveno.showAllAvailableTables()) {
-            System.out.println("Table " + table.getTableID() + " is available");
+            System.out.println("Table " + table.getID() + " is available");
         }
     }
 }

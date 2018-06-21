@@ -5,23 +5,23 @@ import java.util.Objects;
 public class Table {
 
     //properties
-    private int tableID;
+    private int ID;
     private int capacity;
 
     //constructor
-    public Table(int tableID, int capacity){
-        this.tableID = tableID;
+    public Table(int ID, int capacity){
+        this.ID = ID;
         this.capacity = capacity;
     }
 
     // getter TableID
-    public int getTableID() {
-        return this.tableID;
+    public int getID() {
+        return this.ID;
     }
 
     // setter TableID
-    public void setTableID(int tableID) {
-        this.tableID = tableID;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     // getter Capacity
@@ -39,12 +39,12 @@ public class Table {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Table table = (Table) o;
-        return tableID == table.tableID;
+        return ID == table.ID;
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(tableID);
+        return Objects.hash(ID);
     }
 }

@@ -1,7 +1,5 @@
 package com.MolvenoLakeResort.model.restaurant;
 
-import javafx.scene.control.Tab;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -29,16 +27,10 @@ public class Restaurant {
         this.tables.add(new Table(11, 4));
 
         this.bookingsList.add(new Booking(new Guest("Arjan","Tammer"),new Table(1,2), LocalDate.of(2018,6,21)));
-        //this.bookingsList.add(new Booking(new Guest("Arjan","Tammer"), this.tables.get(2),LocalDate.of(2018,6,22)  ));
+        this.bookingsList.add(new Booking(new Guest("Mo","Salem"),new Table(7,2), LocalDate.of(2018,6,21)));
+
 
     }
-
-
-    // protected List<Booking> showAllBooking(){
-
-
-    //  }
-
 
     public List<Table> showAllAvailableTables() {
 
@@ -46,31 +38,17 @@ public class Restaurant {
 
         List<Table> availableTables = new ArrayList<>();
 
-
-
         for (Table table : this.getTables()) {
-
-            //for (Booking element : bookingsList) {
-            //    System.out.println("test3");
-//            if (bookingsList.contains(table)){
 
             Booking searchFor = new Booking(null, table, null);
 
             if (bookingsList.contains(searchFor)){
 
-
-//                if (element.getTable().equals(table)) {
-                    System.out.println("Table already booked");
+                    System.out.println("Table " + table.getID() + " already booked");
                 } else {
                     availableTables.add(table);
-//                    System.out.println("Table "+ table.getTableID() + " is available");
-//
-
-//                System.out.println("Table " + table.getTableID() + " added to list");
-
             }
         }
-
 
         return availableTables;
 

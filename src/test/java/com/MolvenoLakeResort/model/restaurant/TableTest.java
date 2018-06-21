@@ -15,9 +15,9 @@ public class TableTest {
     @Test
     public void testSetAndGetForTableID() {
 
-        this.table.setTableID(5);
+        this.table.setID(5);
 
-        int actual = this.table.getTableID();
+        int actual = this.table.getID();
         Assert.assertEquals(5, actual);
     }
 
