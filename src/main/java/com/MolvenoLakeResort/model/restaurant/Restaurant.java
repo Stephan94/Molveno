@@ -29,7 +29,6 @@ public class Restaurant {
         this.bookingsList.add(new Booking(new Guest("Arjan","Tammer"),new Table(1,2), LocalDate.of(2018,6,21)));
         this.bookingsList.add(new Booking(new Guest("Mo","Salem"),new Table(7,2), LocalDate.of(2018,6,21)));
 
-
     }
 
     public List<Table> showAllAvailableTables() {
@@ -44,7 +43,7 @@ public class Restaurant {
 
             if (bookingsList.contains(searchFor)){
 
-                    System.out.println("Table " + table.getID() + " already booked");
+                    System.out.println("Table " + table.getID() + " is already booked");
                 } else {
                     availableTables.add(table);
             }
