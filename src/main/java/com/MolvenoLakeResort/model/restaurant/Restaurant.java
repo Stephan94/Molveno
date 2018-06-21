@@ -14,6 +14,10 @@ public class Restaurant {
 
     // Constructor
     public Restaurant() {
+        this.setUp();
+    }
+
+    private void setUp() {
         this.tables.add(new Table(1, 2));
         this.tables.add(new Table(2, 4));
         this.tables.add(new Table(3, 6));
