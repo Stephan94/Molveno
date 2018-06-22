@@ -11,7 +11,6 @@ public class App {
         Restaurant molveno = new Restaurant();
 
 
-
         AppController app = new AppController();
         app.run();
     }

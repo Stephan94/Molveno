@@ -4,20 +4,13 @@ import java.time.LocalDate;
 
 public class Guest extends User {
 
+    private String phoneNumber;
 
-    private LocalDate dateOfBirth;
-
-    public Guest(String firstName, String lastName) {
+    public Guest(String firstName, String lastName, String phoneNumber) {
         super(firstName, lastName);
+        this.phoneNumber = phoneNumber;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
 
 }
 
