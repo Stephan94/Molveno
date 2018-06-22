@@ -45,10 +45,10 @@ public class Restaurant {
 
             if (bookingsList.contains(bookingToSearchFor)){
 
-                System.out.println("Table " + table.getID() + " is already booked");
+                System.out.println("Table " + table.getId() + " is already booked");
             } else {
                 availableTables.add(table);
-                System.out.println("Table " + table.getID() + " is available");
+                System.out.println("Table " + table.getId() + " is available");
             }
         }
     }
@@ -68,6 +68,17 @@ public class Restaurant {
         return availableTables;
     }
 
+    public Table getTableById(int id, List<Table> tables) {
+        for (Table table : tables) {
+            if (table.getId() == id) {
+                return table;
+            }
+        }
+        return null;
+    }
+
+
+
 
     public List<Table> getTables() {
         return this.tables;
@@ -78,13 +89,13 @@ public class Restaurant {
     }
 
     public void bookTable(Table table, Guest guest){
-        if (getAllAvailableTables().contains(table)){
+        if (!getAllAvailableTables().contains(table)){
             System.out.println("This table is already booked");
         }
         else{
             Booking bookingToAdd = new Booking(guest, table);
             this.bookingsList.add(bookingToAdd);
-
+            System.out.println("Booking confirmed for "+guest.getLastName()+", "+guest.getFirstName());
         }
     }
 
