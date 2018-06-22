@@ -40,7 +40,7 @@ public class AppController {
                 molveno.showAllAvailableTables();
                 break;
             case 2:
-                // insert create guest method
+                molveno.createGuest();
                 break;
             case 3:
                 showBookingMenu();
@@ -69,25 +69,29 @@ public class AppController {
         scanner = new Scanner(System.in);
         String lastName = scanner.nextLine();
 
-        askTableNumber(firstName, lastName);
+        System.out.println("Insert the guest's phone number");
+        scanner = new Scanner(System.in);
+        String phoneNumber = scanner.nextLine();
+
+        askTableNumber(firstName, lastName, phoneNumber);
     }
 
     private void quit() {
         this.state = false;
     }
 
-    private void askTableNumber(String firstName, String lastName){
+    private void askTableNumber(String firstName, String lastName, String phoneNumber){
         System.out.println("Which table number would you like to book? (PLease consult the list of available tables first)");
         Scanner scanner = new Scanner(System.in);
         int tableId = scanner.nextInt();
 
         if (molveno.getTableById(tableId , molveno.getAllAvailableTables()) != null){
 
-            molveno.bookTable(molveno.getTableById(tableId ,molveno.getAllAvailableTables()), new Guest(firstName , lastName));
+            molveno.bookTable(molveno.getTableById(tableId ,molveno.getAllAvailableTables()), new Guest(firstName , lastName, phoneNumber));
 
         } else {
             System.out.println("Table already booked. Please pick a different table");
-            askTableNumber(firstName, lastName);
+            askTableNumber(firstName, lastName, phoneNumber);
         }
     }
 
