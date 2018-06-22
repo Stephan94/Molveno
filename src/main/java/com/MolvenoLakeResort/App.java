@@ -10,9 +10,7 @@ public class App {
 
         Restaurant molveno = new Restaurant();
 
-       /* for (Table table : molveno.showAllAvailableTables()) {
-            System.out.println("Table " + table.getID() + " is available");
-        }*/
+
 
         AppController app = new AppController();
         app.run();

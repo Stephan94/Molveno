@@ -14,6 +14,11 @@ public class Booking {
         return table;
     }
 
+    public Booking(Guest guest, Table table) {
+        this.guest = guest;
+        this.table = table;
+    }
+
     public Booking(Guest guest, Table table, LocalDate date) {
         this.guest = guest;
         this.table = table;

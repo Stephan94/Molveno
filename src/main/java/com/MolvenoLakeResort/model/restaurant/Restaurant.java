@@ -35,25 +35,37 @@ public class Restaurant {
 
     }
 
-    public List<Table> showAllAvailableTables() {
-
+    public void showAllAvailableTables() {
 
         List<Table> availableTables = new ArrayList<>();
 
         for (Table table : this.getTables()) {
 
-            Booking searchFor = new Booking(null, table, null);
+            Booking bookingToSearchFor = new Booking(null, table, null);
 
-            if (bookingsList.contains(searchFor)){
+            if (bookingsList.contains(bookingToSearchFor)){
 
-                    System.out.println("Table " + table.getID() + " is already booked");
-                } else {
-                    availableTables.add(table);
+                System.out.println("Table " + table.getID() + " is already booked");
+            } else {
+                availableTables.add(table);
+                System.out.println("Table " + table.getID() + " is available");
             }
         }
+    }
 
+    public List<Table> getAllAvailableTables() {
+
+        List<Table> availableTables = new ArrayList<>();
+
+        for (Table table : this.getTables()) {
+
+            Booking bookingToSearchFor = new Booking(null, table, null);
+
+            if (!bookingsList.contains(bookingToSearchFor)){
+                availableTables.add(table);
+            }
+        }
         return availableTables;
-
     }
 
 
@@ -64,6 +76,19 @@ public class Restaurant {
     public void setTables(List<Table> tables) {
         this.tables = tables;
     }
+
+    public void bookTable(Table table, Guest guest){
+        if (getAllAvailableTables().contains(table)){
+            System.out.println("This table is already booked");
+        }
+        else{
+            Booking bookingToAdd = new Booking(guest, table);
+            this.bookingsList.add(bookingToAdd);
+
+        }
+    }
+
+
 }
 
 
