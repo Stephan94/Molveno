@@ -2,7 +2,7 @@ package com.MolvenoLakeResort.model.restaurant;
 
 import java.util.Objects;
 
-public class Table {
+public class Table implements Comparable<Table> {
 
     //properties
     private int ID;
@@ -46,5 +46,16 @@ public class Table {
     public int hashCode() {
 
         return Objects.hash(ID);
+    }
+
+    @Override
+    public int compareTo(Table o){
+        return this.getCapacity() - o.getCapacity();
+    }
+
+    @Override
+    public String toString() {
+        return "Table number " + ID +
+                " for " + capacity + " guests is available. \n";
     }
 }
