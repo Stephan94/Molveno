@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Restaurant {
+public class Restaurant{
 
     // Fields
     private List<Booking> bookingsList = new LinkedList<>();
@@ -72,6 +72,63 @@ public class Restaurant {
         return availableTables;
     }
 
+    public List<Table> SearchTableByTimeAndCapacity(int capacity, List<Table> availableTables){
+
+        //A list to store the results of search
+        List<Table> availableTablesBySearch = new ArrayList<>();
+
+        //Search only goes on when hasFoundResult = false;
+        boolean hasFoundResult = false;
+
+        for (Table table: availableTables){
+
+            if(table.getCapacity() == capacity){
+
+                availableTablesBySearch.add(table);
+
+                hasFoundResult = true;
+            }
+
+        }
+
+        //If no table fits the capacity, then it looks for a table with bigger sizes
+        if (!hasFoundResult) {
+
+            int capacityForBiggerTable = capacity + 1;
+
+            do {
+
+                capacityForBiggerTable = capacityForBiggerTable+1;
+
+                for (Table table : availableTables) {
+
+                    if (table.getCapacity() == capacityForBiggerTable) {
+
+                        availableTablesBySearch.add(table);
+
+                    }
+                }
+
+                //Once it finds all the table sizes that match capacityForBiggerTable, then it stops searching
+                if (availableTablesBySearch.size() != 0){
+
+                    hasFoundResult = true;
+
+                }
+
+            } while (!hasFoundResult && capacityForBiggerTable <= 9);
+
+        }
+
+        if (availableTablesBySearch.size() == 0) {
+
+            System.out.println("There's no table for " + capacity + " guests or more available.");
+
+        }
+
+        return availableTablesBySearch;
+    }
+
     public Table getTableById(int id, List<Table> tables) {
         for (Table table : tables) {
             if (table.getId() == id) {
@@ -80,6 +137,7 @@ public class Restaurant {
         }
         return null;
     }
+
 
 
 
