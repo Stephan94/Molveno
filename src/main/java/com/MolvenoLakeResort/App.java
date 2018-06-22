@@ -10,7 +10,7 @@ public class App {
 
         Restaurant molveno = new Restaurant();
 
-
+        molveno.createGuest();
 
         AppController app = new AppController();
         app.run();
