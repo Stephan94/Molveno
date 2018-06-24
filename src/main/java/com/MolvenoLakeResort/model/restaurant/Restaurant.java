@@ -33,6 +33,8 @@ public class Restaurant {
         this.tables.add(new Table(11, 4));
 
         this.guests.add(new Guest("Raymond", "Loman", "067794345"));
+        this.guests.add(new Guest("Arjan", "Tammer", "061234567" ));
+        this.guests.add(new Guest("Mo", "Salem", "069876543"));
 
         this.bookingsList.add(new Booking(new Guest("Arjan","Tammer", "061234567"),new Table(1,2), LocalDate.of(2018,6,21)));
         this.bookingsList.add(new Booking(new Guest("Mo","Salem", "069876543"),new Table(7,2), LocalDate.of(2018,6,21)));
@@ -112,7 +114,7 @@ public class Restaurant {
         Scanner input = new Scanner(System.in);
 
         // Get the guestList
-        List<Guest> guestList = new ArrayList<>();
+        List<Guest> guests = new ArrayList<>();
 
         // Ask for the first name
         System.out.println("Please enter the first name of the guest: ");
@@ -132,7 +134,7 @@ public class Restaurant {
 
         Guest g = new Guest(firstName, lastName, telephoneNumber);
 
-        if (guestList.contains(g)) {
+        if (guests.contains(g)) {
             System.out.println("This guest is already in the system");
         } else {
             Guest guestToAdd = new Guest(firstName, lastName, telephoneNumber);
@@ -142,9 +144,11 @@ public class Restaurant {
 
     public void showAllGuests() {
 
-//         Work in progress!
-        //       System.out.println(guestList.get()" has a reservation in the restaurant");
+        for (Guest guest : guests) {
+            System.out.println("Guest " + guest.getFirstName() + " " + guest.getLastName() + " is on this guest list");
 
+
+        }
     }
 
     // Setters and setter
@@ -162,15 +166,5 @@ public class Restaurant {
 
 }
 
-
-/**
- * Give boolean to available
- * Check if boolean is false/true
- * then add false to a new list
- * <p>
- * if not booked then
- * <p>
- * List<Table> availableTables = Restaurant.tables();
- */
 
 
