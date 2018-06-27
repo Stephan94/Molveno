@@ -71,4 +71,6 @@ public class Booking {
     }
 
 
+    public void setId(long l) {
+    }
 }

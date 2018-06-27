@@ -6,12 +6,17 @@ import java.util.Objects;
 
 public class Booking {
 
+    private long id;
     private Guest guest;
     private Table table;
     private LocalDate date;
 
     public Table getTable() {
         return table;
+    }
+
+    public Booking(){
+
     }
 
     public Booking(Guest guest, Table table) {
@@ -37,5 +42,33 @@ public class Booking {
     public int hashCode() {
 
         return Objects.hash(table);
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Guest getGuest() {
+        return this.guest;
+    }
+
+    public void setGuest(Guest guest) {
+        this.guest = guest;
+    }
+
+    public void setTable(Table table) {
+        this.table = table;
+    }
+
+    public LocalDate getDate() {
+        return this.date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }
