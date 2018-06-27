@@ -5,22 +5,22 @@ import java.util.Objects;
 public class Table implements Comparable<Table> {
 
     //properties
-    private int id;
+    private long id;
     private int capacity;
 
     //constructor
-    public Table(int ID, int capacity){
+    public Table(long ID, int capacity){
         this.id = ID;
         this.capacity = capacity;
     }
 
     // getter TableID
-    public int getId() {
+    public long getId() {
         return this.id;
     }
 
     // setter TableID
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
