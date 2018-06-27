@@ -28,7 +28,7 @@ public class BookingRepository { //fill repo in sonstructor or controller?
 
     public Booking findById(long id) {
         return this.bookings.get(id);
-    }
+}
 
     public void removeById(long id) {
         this.bookings.remove(id);
