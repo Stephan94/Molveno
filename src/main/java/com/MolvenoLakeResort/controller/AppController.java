@@ -35,7 +35,6 @@ public class AppController {
         return choice;
     }
 
-
     private void interpreter(int choice) {
         switch (choice) {
             case 1:
