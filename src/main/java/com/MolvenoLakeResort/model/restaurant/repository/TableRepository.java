@@ -14,7 +14,6 @@ public class TableRepository {
 
     @PostConstruct
     public void preFillRecords(){
-        for (int i = 0; i < 10; i++){
 
             this.add(new Table(1, 2));
             this.add(new Table(2, 2));
@@ -28,10 +27,7 @@ public class TableRepository {
             this.add(new Table(10, 8));
             this.add(new Table(11, 8));
             this.add(new Table(12, 8));
-        }
     }
-
-
 
     public void add(Table newTable) {
         newTable.setId(++lastId);
