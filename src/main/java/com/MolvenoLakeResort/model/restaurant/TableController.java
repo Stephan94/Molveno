@@ -1,10 +1,12 @@
+package com.MolvenoLakeResort.model.restaurant;
+
 import com.MolvenoLakeResort.model.restaurant.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.MolvenoLakeResort.model.restaurant.repository.TableRepository;
 
 import java.util.Collection;
 
-/*
 @RestController
 @RequestMapping("api/tables")
 public class TableController {
@@ -14,7 +16,7 @@ public class TableController {
 
     @PostMapping
     public Table create(@RequestBody Table newTable){
-        this.tableRepository.save(newTable);
+        this.tableRepository.add(newTable);
         return newTable;
     }
 
@@ -36,7 +38,6 @@ public class TableController {
 
     @DeleteMapping("/delete/{id}")
     public void deleteById(@PathVariable long id){
-        this.tableRepository.deleteById(id);
+        this.tableRepository.removeById(id);
     }
 }
-*/
