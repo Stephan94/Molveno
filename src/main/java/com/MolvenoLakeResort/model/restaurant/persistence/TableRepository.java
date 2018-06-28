@@ -42,7 +42,7 @@ public class TableRepository {
         return this.tables.get(id);
     }
 
-    public Collection<Table> findAll(long id) {
+    public Collection<Table> findAll() {
         return this.tables.values();
     }
 

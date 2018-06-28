@@ -40,7 +40,7 @@ public class BookingRepository { //fill repo in sonstructor or controller?
         this.bookings.remove(id);
     }
 
-    public Collection<Booking> findAll(long id) {
+    public Collection<Booking> findAll() {
         return this.bookings.values();
     }
 
