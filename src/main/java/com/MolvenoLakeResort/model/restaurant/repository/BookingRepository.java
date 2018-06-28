@@ -14,6 +14,7 @@ public class BookingRepository { //fill repo in sonstructor or controller?
     private Map<Long, Booking> bookings = new HashMap<>();
     private static long lastId = 0;
 
+    //  TODO add autowired Table repo and guest repo
     @PostConstruct
     public void preFillRecords(){
         for (int i = 0; i < 10; i++){
