@@ -1,6 +1,5 @@
-package com.MolvenoLakeResort.model.restaurant.repository;
+package com.MolvenoLakeResort.model.restaurant.persistence;
 
-import com.MolvenoLakeResort.model.restaurant.Booking;
 import com.MolvenoLakeResort.model.restaurant.Guest;
 import org.springframework.stereotype.Repository;
 
@@ -40,7 +39,7 @@ public class GuestRepository {
         this.guests.remove(id);
     }
 
-    public Collection<Guest> findAll(long id) {
+    public Collection<Guest> findAll() {
         return this.guests.values();
     }
 

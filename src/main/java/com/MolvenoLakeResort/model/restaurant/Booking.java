@@ -1,5 +1,6 @@
 package com.MolvenoLakeResort.model.restaurant;
 
+import java.sql.Time;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -10,6 +11,7 @@ public class Booking {
     private Guest guest;
     private Table table;
     private LocalDate date;
+    private Time time;
 
     public Table getTable() {
         return table;
@@ -44,6 +46,8 @@ public class Booking {
         return Objects.hash(table);
     }
 
+
+
     public long getId() {
         return this.id;
     }
@@ -70,5 +74,13 @@ public class Booking {
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public Time getTime() {
+        return this.time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
     }
 }

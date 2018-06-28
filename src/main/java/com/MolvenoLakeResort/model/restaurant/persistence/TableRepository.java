@@ -1,4 +1,4 @@
-package com.MolvenoLakeResort.model.restaurant.repository;
+package com.MolvenoLakeResort.model.restaurant.persistence;
 
 import com.MolvenoLakeResort.model.restaurant.Table;
 
