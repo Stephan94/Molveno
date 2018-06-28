@@ -40,7 +40,7 @@ public class GuestRepository {
         this.guests.remove(id);
     }
 
-    public Collection<Guest> findAll(long id) {
+    public Collection<Guest> findAll() {
         return this.guests.values();
     }
 
