@@ -1,6 +1,7 @@
-package com.MolvenoLakeResort.model.restaurant.repository;
+package com.MolvenoLakeResort.model.restaurant.persistence;
 
 import com.MolvenoLakeResort.model.restaurant.Booking;
+import com.MolvenoLakeResort.model.restaurant.Guest;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -14,10 +15,15 @@ public class BookingRepository { //fill repo in sonstructor or controller?
     private Map<Long, Booking> bookings = new HashMap<>();
     private static long lastId = 0;
 
+    private GuestRepository guests = new GuestRepository();
+    private TableRepository tables = new TableRepository();
+
+
+    //  TODO add autowired Table repo and guest repo
     @PostConstruct
     public void preFillRecords(){
-        for (int i = 0; i < 10; i++){
-            Booking booking = new Booking(); //TODO insert valid bookings (probably fix table and guest repos first)
+        for (int i = 0; i < 4; i++){
+            this.add(new Booking(guests.findById(i), tables.findById(i) ) );
         }
     }
 

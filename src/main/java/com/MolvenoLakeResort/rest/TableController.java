@@ -3,7 +3,8 @@ package com.MolvenoLakeResort.rest;
 import com.MolvenoLakeResort.model.restaurant.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.MolvenoLakeResort.model.restaurant.repository.TableRepository;
+import com.MolvenoLakeResort.model.restaurant.persistence.TableRepository;
+
 
 import java.util.Collection;
 
@@ -40,4 +41,5 @@ public class TableController {
     public void deleteById(@PathVariable long id){
         this.tableRepository.removeById(id);
     }
+
 }
