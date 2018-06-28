@@ -1,4 +1,4 @@
-package com.MolvenoLakeResort.model.restaurant;
+package com.MolvenoLakeResort.rest;
 
 import com.MolvenoLakeResort.model.restaurant.Table;
 import org.springframework.beans.factory.annotation.Autowired;
