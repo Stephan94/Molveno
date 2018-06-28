@@ -76,7 +76,7 @@ public class Restaurant{
 
     public List<Table> SearchTableByTimeAndCapacity(int capacity, List<Table> availableTables){
 
-        //A list to store the results of search
+        //A getAllBookings to store the results of search
         List<Table> availableTablesBySearch = new ArrayList<>();
 
         //Search only goes on when hasFoundResult = false;
@@ -203,7 +203,7 @@ public class Restaurant{
     public void showAllGuests() {
 
         for (Guest guest : guests) {
-            System.out.println("Guest " + guest.getFirstName() + " " + guest.getLastName() + " is on this guest list");
+            System.out.println("Guest " + guest.getFirstName() + " " + guest.getLastName() + " is on this guest getAllBookings");
 
 
         }
