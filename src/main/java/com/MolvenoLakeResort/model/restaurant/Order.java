@@ -5,12 +5,11 @@ import java.util.Date;
 public class Order {
 
     private int ID;
-
     private Date date;
-
+    private double totalOrderCost;
+    private PaymentStatus statusOfPayment;
     private boolean isPaid;
 
-    private double totalOrderCost;
 
     //for unit testing
     public void setTotalOrderCost (double totalOrderCost){
@@ -23,4 +22,12 @@ public class Order {
         return this.totalOrderCost;
     }
 
+    // use Enum PaymentStatus
+    public PaymentStatus getStatusOfPayment() {
+        return this.statusOfPayment;
+    }
+
+    public void setStatusOfPayment(PaymentStatus statusOfPayment) {
+        this.statusOfPayment = statusOfPayment;
+    }
 }
