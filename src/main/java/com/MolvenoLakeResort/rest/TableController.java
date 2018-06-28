@@ -40,4 +40,5 @@ public class TableController {
     public void deleteById(@PathVariable long id){
         this.tableRepository.removeById(id);
     }
+
 }
