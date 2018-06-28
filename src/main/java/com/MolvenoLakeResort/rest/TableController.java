@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.MolvenoLakeResort.model.restaurant.persistence.TableRepository;
 
+
 import java.util.Collection;
 
 @RestController
@@ -40,4 +41,5 @@ public class TableController {
     public void deleteById(@PathVariable long id){
         this.tableRepository.removeById(id);
     }
+
 }
