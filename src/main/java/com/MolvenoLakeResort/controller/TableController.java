@@ -10,9 +10,9 @@ import java.util.Map;
 @RequestMapping("/")
 public class TableController {
 
-    @RequestMapping(value="/tafels", method = RequestMethod.GET)
+    @RequestMapping(value="/tables", method = RequestMethod.GET)
     public String home(Map<String, Object> model) {
-        return "table";
+        return "tables";
     }
 
 }
