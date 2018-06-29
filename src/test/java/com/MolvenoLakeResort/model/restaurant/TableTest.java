@@ -17,7 +17,7 @@ public class TableTest {
 
         this.table.setId(5);
 
-        int actual = this.table.getId();
+        long actual = this.table.getId();
         Assert.assertEquals(5, actual);
     }
 
