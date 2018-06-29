@@ -10,7 +10,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/tables")
-public class TableController {
+public class TableRestController {
 
     @Autowired
     private TableRepository tableRepository;
