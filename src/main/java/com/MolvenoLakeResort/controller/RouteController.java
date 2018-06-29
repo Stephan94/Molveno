@@ -8,7 +8,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/")
-public class TableController {
+public class RouteController {
 
     @RequestMapping(value="/tables", method = RequestMethod.GET)
     public String home(Map<String, Object> model) {
