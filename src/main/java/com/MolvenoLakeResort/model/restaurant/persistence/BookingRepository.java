@@ -54,4 +54,8 @@ public class BookingRepository { //fill repo in sonstructor or controller?
 
         return target;
     }
+
+    public void searchByCapacityAndTime(){
+        findAll();
+    }
 }
