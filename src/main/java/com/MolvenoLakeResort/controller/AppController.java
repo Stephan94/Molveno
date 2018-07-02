@@ -91,7 +91,7 @@ public class AppController {
     }
 
     private void askTableNumber(String firstName, String lastName, String phoneNumber) {
-        System.out.println("Which table number would you like to book? (Please consult the list of available tables first)");
+        System.out.println("Which table number would you like to book? (Please consult the getAllBookings of available tables first)");
         Scanner scanner = new Scanner(System.in);
         int tableId = scanner.nextInt();
 

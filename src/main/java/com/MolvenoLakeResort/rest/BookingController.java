@@ -1,21 +1,22 @@
 package com.MolvenoLakeResort.rest;
 
 import com.MolvenoLakeResort.model.restaurant.Booking;
+import com.MolvenoLakeResort.model.restaurant.persistence.BookingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Collection;
 
 @RestController
     @RequestMapping("Bookings")
     public class BookingController {
 
-    private List<Booking> bookings = new LinkedList<>();
-    private List<Booking> searchResultByCapcityAndTime;
+    @Autowired
+    private BookingRepository bookings;
 
     @GetMapping
-    public List<Booking> list(){
-        return bookings;
+    public Collection<Booking> getAllBookings(){
+        return this.bookings.findAll();
     }
 
     @GetMapping("{capacity}/{date}") //date input : "2010-06-25T14:25"
