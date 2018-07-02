@@ -10,7 +10,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("api/tables")
-public class TableRestController {
+public class TableController {
 
     @Autowired
     private TableRepository tableRepository;
@@ -28,8 +28,7 @@ public class TableRestController {
 
     @GetMapping("{id}")
     public Table findById(@PathVariable long id){
-        Table result = this.tableRepository.findById(id);
-        return result;
+        return  this.tableRepository.findById(id);
     }
 
     @PutMapping("{id}")
