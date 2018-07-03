@@ -19,9 +19,8 @@ public class MenuItem {
         this.suggestedPrice = suggestedPrice;
     }
 
-
-    // add getter and setter
-
+    public MenuItem() {
+    }
 
     public String getMenuId() {
         return this.menuId;

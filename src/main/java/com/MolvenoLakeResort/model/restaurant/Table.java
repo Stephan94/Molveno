@@ -14,6 +14,9 @@ public class Table implements Comparable<Table> {
         this.capacity = capacity;
     }
 
+    public Table() {
+    }
+
     // getter TableID
     public long getId() {
         return this.id;

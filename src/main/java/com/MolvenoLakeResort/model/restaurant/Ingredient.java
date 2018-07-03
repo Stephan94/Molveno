@@ -16,6 +16,8 @@ public class Ingredient {
         this.price = price;
     }
 
+    public Ingredient() {
+    }
 
     // add getter and setter
 
