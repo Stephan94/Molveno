@@ -25,9 +25,9 @@ public class RouteController {
     @RequestMapping(value="/ingredients", method = RequestMethod.GET)
     public String ingredients(Map<String, Object> model) {
         return "ingredients";
-
+    }
     @RequestMapping(value="/menuItems", method = RequestMethod.GET)
-    public String menuItems(Map<String, Object> model){
+    public String menuItems(Map<String, Object> model) {
         return "menuItems";
     }
 
