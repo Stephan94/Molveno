@@ -1,10 +1,17 @@
 package com.MolvenoLakeResort.model.restaurant;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Table implements Comparable<Table> {
+@Entity
+public class Table implements Serializable, Comparable<Table> {
 
-    //properties
+
+    @Id
+    @GeneratedValue
     private long id;
     private int capacity;
 

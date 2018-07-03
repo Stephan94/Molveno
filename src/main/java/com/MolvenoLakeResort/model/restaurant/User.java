@@ -1,11 +1,22 @@
 package com.MolvenoLakeResort.model.restaurant;
 
-public class User {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 
+@Entity
+public class User implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String firstName;
     private String lastName;
+
+    public User(){
+    }
 
     public User(String firstName, String lastName ) {
         this.firstName = firstName;
