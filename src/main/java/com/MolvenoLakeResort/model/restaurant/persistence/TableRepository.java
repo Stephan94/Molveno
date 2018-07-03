@@ -1,12 +1,13 @@
 package com.MolvenoLakeResort.model.restaurant.persistence;
 
 import com.MolvenoLakeResort.model.restaurant.Table;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-
+@Repository
 public class TableRepository {
 
     private Map<Long, Table> tables = new HashMap<>();

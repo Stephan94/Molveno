@@ -28,8 +28,7 @@ public class TableController {
 
     @GetMapping("{id}")
     public Table findById(@PathVariable long id){
-        Table result = this.tableRepository.findById(id);
-        return result;
+        return  this.tableRepository.findById(id);
     }
 
     @PutMapping("{id}")
