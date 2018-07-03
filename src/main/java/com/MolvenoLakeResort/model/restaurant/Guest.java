@@ -1,8 +1,11 @@
 package com.MolvenoLakeResort.model.restaurant;
 
+import javax.persistence.Entity;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 public class Guest extends User {
+
 
     private String phoneNumber;
 

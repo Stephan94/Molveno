@@ -1,13 +1,11 @@
 package com.MolvenoLakeResort.model.restaurant;
 
 public class MenuItem {
-    //fields
-
-    //private ArrayList<MenuItem> main = new ArrayList<MenuItem>();       work in progress\\
 
     private long id;
     private double actualPrice;
     private double suggestedPrice;
+
 
 // add constructor
 
@@ -16,6 +14,7 @@ public class MenuItem {
         this.actualPrice = actualPrice;
         this.suggestedPrice = suggestedPrice;
     }
+
 
 
     // add getter and setter
