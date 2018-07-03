@@ -5,6 +5,7 @@ import com.MolvenoLakeResort.model.restaurant.persistence.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -20,10 +21,11 @@ import java.util.List;
         return this.bookings.findAll();
     }
 
-//    @GetMapping("{capacity}/{date}") //date input : "2010-06-25T14:25"
-//    public List<Booking> searchResultByCapcityAndTime(){
-//        return searchResultByCapcityAndTime;
-//    }
+    @GetMapping("{capacity}/{date}") //date input : "2010-06-25T14:25"
+    public List<Booking> searchResultByCapcityAndTime(){
+
+        return new ArrayList<Booking>();
+    }
 
     @PostMapping
     public Booking create(@RequestBody Booking newBooking){
