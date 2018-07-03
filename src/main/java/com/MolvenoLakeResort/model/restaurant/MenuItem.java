@@ -15,7 +15,7 @@ public class MenuItem {
         this.suggestedPrice = suggestedPrice;
     }
 
-
+// Dit is een test!!!!
 
     // add getter and setter
 
