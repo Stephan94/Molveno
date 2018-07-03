@@ -9,31 +9,37 @@ import java.util.Objects;
 @Entity
 public class Table implements Serializable, Comparable<Table> {
 
-    public Table(){
-    }
 
     @Id
     @GeneratedValue
     private long id;
     private int capacity;
 
+    //constructor
     public Table(long ID, int capacity){
         this.id = ID;
         this.capacity = capacity;
     }
 
+    public Table() {
+    }
+
+    // getter TableID
     public long getId() {
         return this.id;
     }
 
+    // setter TableID
     public void setId(long id) {
         this.id = id;
     }
 
+    // getter Capacity
     public int getCapacity() {
         return this.capacity;
     }
 
+    //setter Capacity
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }

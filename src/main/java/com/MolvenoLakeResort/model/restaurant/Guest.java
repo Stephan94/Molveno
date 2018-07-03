@@ -14,6 +14,10 @@ public class Guest extends User {
         this.phoneNumber = phoneNumber;
     }
 
+    public Guest(String firstName, String lastName) {
+        super(firstName, lastName);
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }

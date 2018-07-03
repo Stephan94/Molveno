@@ -14,6 +14,11 @@ public class Ingredient {
         this.price = price;
     }
 
+    public Ingredient() {
+    }
+
+    // add getter and setter
+
     public String getName() {
         return this.name;
     }
@@ -37,6 +42,7 @@ public class Ingredient {
     public void setPrice(double price) {
         this.price = price;
     }
+
     @Override
     public int hashCode() {
 
