@@ -1,25 +1,31 @@
 package com.MolvenoLakeResort.model.restaurant;
 
-import java.util.ArrayList;
-
 public class MenuItem {
 
-    private String menuId;
+    private long id;
     private double actualPrice;
     private double suggestedPrice;
 
-    public MenuItem(ArrayList<MenuItem> main, String menuId, double actualPrice, double suggestedPrice) {
-        this.menuId = menuId;
+
+// add constructor
+
+    public MenuItem(long id, double actualPrice, double suggestedPrice) {
+        this.id = id;
         this.actualPrice = actualPrice;
         this.suggestedPrice = suggestedPrice;
     }
 
-    public String getMenuId() {
-        return this.menuId;
+
+
+    // add getter and setter
+
+
+    public long getId() {
+        return this.id;
     }
 
-    public void setMenuId(String menuId) {
-        this.menuId = menuId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public double getActualPrice() {
