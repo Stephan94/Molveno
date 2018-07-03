@@ -17,4 +17,9 @@ public class RouteController {
         return "tables";
     }
 
+    @RequestMapping(value="/menuItems", method = RequestMethod.GET)
+    public String menuItems(Map<String, Object> model){
+        return "menuItems";
+    }
+
 }

@@ -19,10 +19,10 @@ import java.util.Collection;
         return this.bookings.findAll();
     }
 
-    @GetMapping("{capacity}/{date}") //date input : "2010-06-25T14:25"
-    public List<Booking> searchResultByCapcityAndTime(){
-        return searchResultByCapcityAndTime;
-    }
+   // @GetMapping("{capacity}/{date}") //date input : "2010-06-25T14:25"
+    //public List<Booking> searchResultByCapcityAndTime(){
+     //   return searchResultByCapcityAndTime;
+    //}
 
     @PostMapping
     public Booking create(@RequestBody Booking newBooking){
