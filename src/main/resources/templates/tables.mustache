@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <h1 class="mt-5">DataTables Demo</h1>
 
-        <table id="tableTable" class="display table-hover">
+        <table id="dataTable" class="display table-hover">
             <thead>
                 <tr>
                     <th>Table Number (ID)</th>
@@ -21,6 +21,35 @@
                 </tr>
             </tfoot>
         </table>
+
+        <div class="modal fade" id="modal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" onclick="deselect()" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title" id="modal-title">Title</h3>
+                    </div>
+                    <div class="modal-body">
+                        <form id="tablesForm" enctype='text/plain'>
+                            ID:<br>
+                            <input type='text' class="form-control" name='id' id="id"><br>
+                            Capacity:<br>
+                            <input type='text' class="form-control" name='capacity' id="capacity"><br>
+                         </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnsubmit">Submit</button>
+                        <a href="#" id="confirmbutton" data-title="Are you sure" data-trigger="focus" data-toggle="clickover" data-placement="top" class="btn btn-danger">Delete</a>
+                        <button type="button" class="btn btn-default" id="btnclose" onclick="deselect()" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
 
     </div>
     <!-- /.container -->
