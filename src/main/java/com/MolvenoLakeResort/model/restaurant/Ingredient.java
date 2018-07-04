@@ -1,21 +1,21 @@
 package com.MolvenoLakeResort.model.restaurant;
 
+import java.util.Objects;
+
 public class Ingredient {
 
-
     private String name;
-    private int id;
+    private long id;
     private double price;
 
-    // add constructor
-
-
-    public Ingredient(String name, int id, double price) {
+    public Ingredient(String name, long id, double price) {
         this.name = name;
         this.id = id;
         this.price = price;
     }
 
+    public Ingredient() {
+    }
 
     // add getter and setter
 
@@ -27,11 +27,11 @@ public class Ingredient {
         this.name = name;
     }
 
-    public int getId() {
+    public long getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -42,4 +42,11 @@ public class Ingredient {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id);
+    }
+
 }
