@@ -2,7 +2,6 @@
 function apiGetSingleTable(id, api){
 
     apiPath = String(api +"/"+ id);
-    alert(apiPath);
     $.get(apiPath, function(data){
         if (data){
             fillUpdateDiv(data, api);
@@ -83,7 +82,6 @@ function submitEdit(id, api){
 
 function getData(api) {
       //var api = "http://localhost:8080/api/tables";
-        alert(api);
         api = String(api);
         $.get(api, function(data){
             if (data){
@@ -143,7 +141,6 @@ function submitDelete(id, api){
 $( document ).ready(function() {
 
     var path = String(window.location.pathname);
-    alert(path);
     var api;
     var columns;
 
