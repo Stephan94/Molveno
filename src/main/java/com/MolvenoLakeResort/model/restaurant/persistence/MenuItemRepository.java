@@ -1,12 +1,13 @@
 package com.MolvenoLakeResort.model.restaurant.persistence;
 
+import com.MolvenoLakeResort.model.restaurant.Ingredient;
 import com.MolvenoLakeResort.model.restaurant.MenuItem;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import javax.persistence.CascadeType;
+import javax.persistence.ManyToMany;
+import java.util.*;
 
 @Repository
 public class MenuItemRepository {
@@ -18,11 +19,21 @@ public class MenuItemRepository {
     public void preFillRecords(){
 
         this.add(new MenuItem(1, 30, 24));
+
         this.add(new MenuItem(2, 25, 20));
         this.add(new MenuItem(3, 35, 29));
         this.add(new MenuItem(4, 40, 34));
         this.add(new MenuItem(5, 32, 28));
     }
+
+    /*
+    @ManyToMany(mappedBy = "Menuitem", cascade = CascadeType.ALL)
+    private List<Ingredient> ingredientList = new ArrayList<>();
+
+    public void setIngredientSet(){
+        this.menuItems =
+    }
+    */
 
     public void add(MenuItem newMenuItem) {
         newMenuItem.setId(++lastId);
