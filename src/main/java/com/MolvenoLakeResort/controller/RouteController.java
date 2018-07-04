@@ -31,4 +31,19 @@ public class RouteController {
         return "menuItems";
     }
 
+    @RequestMapping(value="/contact", method = RequestMethod.GET)
+    public String contact(Map<String, Object> model) {
+        return "contact";
+    }
+
+    @RequestMapping(value="/employeeHomePage", method = RequestMethod.GET)
+    public String employeeHomePage(Map<String, Object> model) {
+        return "employeeHomePage";
+    }
+
+    @RequestMapping(value="/", method = RequestMethod.GET)
+    public String index(Map<String, Object> model) {
+        return "index";
+    }
+
 }
