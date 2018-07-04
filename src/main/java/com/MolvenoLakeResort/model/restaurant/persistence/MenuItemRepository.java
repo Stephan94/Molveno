@@ -22,7 +22,6 @@ public class MenuItemRepository {
         this.add(new MenuItem(3, 35, 29));
         this.add(new MenuItem(4, 40, 34));
         this.add(new MenuItem(5, 32, 28));
-
     }
 
     public void add(MenuItem newMenuItem) {
