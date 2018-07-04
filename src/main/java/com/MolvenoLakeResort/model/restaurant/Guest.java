@@ -9,6 +9,9 @@ public class Guest extends User {
 
     private String phoneNumber;
 
+    public Guest() {
+    }
+
     public Guest(String firstName, String lastName, String phoneNumber) {
         super(firstName, lastName);
         this.phoneNumber = phoneNumber;
@@ -19,11 +22,13 @@ public class Guest extends User {
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return this.phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+
 }
 
