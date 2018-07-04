@@ -35,7 +35,7 @@ public class GuestController {
         return this.guestRepository.update(id, update);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("{id}")
     public void deleteById(@PathVariable long id){
         this.guestRepository.removeById(id);
     }

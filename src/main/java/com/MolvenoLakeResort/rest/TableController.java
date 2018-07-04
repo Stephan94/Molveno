@@ -36,7 +36,7 @@ public class TableController {
         return this.tableRepository.update(id, update);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("{id}")
     public void deleteById(@PathVariable long id){
         this.tableRepository.removeById(id);
     }
