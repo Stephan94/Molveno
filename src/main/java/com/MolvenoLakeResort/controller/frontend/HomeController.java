@@ -1,3 +1,4 @@
+/*
 package com.MolvenoLakeResort.controller.frontend;
 
 import org.springframework.stereotype.Controller;
@@ -7,14 +8,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.Map;
 
 
+*/
 /*
 This controller is responsible for returning the correct template name based on the
 entered URL
 
 You ONLY use it for Mustache ...
- */
+ *//*
+
 @Controller
-@RequestMapping(value = "/")
+@RequestMapping(value = "/a")
 public class HomeController {
 
     // when I type in: http://localhost:8080/
@@ -48,3 +51,4 @@ public class HomeController {
         return "jquery-demo";
     }
 }
+*/
