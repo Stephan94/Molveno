@@ -113,3 +113,17 @@ function submitDelete(id, api){
     $('#myModal').modal('toggle');
     deselect();
 }
+
+function buildJsonObject(path){
+
+    swtich(path){
+        case: "/guests"
+        return {
+            firstName: $("#firstName").val(),
+            lastName: $("#lastName").val(),
+            phoneNumber: $("#phoneNumber").val()
+        };
+    }
+
+
+}

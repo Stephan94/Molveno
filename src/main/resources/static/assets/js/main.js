@@ -1,6 +1,3 @@
-
-
-
 $( document ).ready(function() {
 
     var path = String(window.location.pathname);
@@ -34,18 +31,31 @@ $( document ).ready(function() {
             break;
     }
 
-    //alter addButton
-    $("#addButton").click(function() {
 
-                var jsonObject = {
-                    firstName: $("#firstName").val(),
-                    lastName: $("#lastName").val(),
-                    phoneNumber: $("#phoneNumber").val()
-                };
+    $("#addButton").on( 'click', function (){
+
+        if ( $("#btncreate").hasClass('d-none') ) {
+            $("#btncreate").removeClass('d-none');
+        }
+        else {
+            deselect();
+            $(this).addClass('d-none');
+            $('#modal').modal('toggle');
+        }
+
+    });
+
+
+    //alter addButton
+    $("#btncreate").on( 'click',  function () {
+
+
+            var jsonObject = buildJsonObject(path);
+
                  $.ajax({
                         contentType : "application/json",
                          // waar moet hij de request op uitvoeren
-                         url : baseUrl+"persons",
+                         url : api,
                          // type actie
                          type : "post",
                          data: JSON.stringify(jsonObject),
@@ -91,8 +101,3 @@ $( document ).ready(function() {
     });
 
 });
-
-
-
-
-
