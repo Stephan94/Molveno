@@ -35,9 +35,9 @@ public class Restaurant{
         this.guests.add(new Guest("Raymond", "Loman", "067794345"));
         this.guests.add(new Guest("Arjan", "Tammer", "061234567" ));
         this.guests.add(new Guest("Mo", "Salem", "069876543"));
-
-        this.bookingsList.add(new Booking(new Guest("Arjan","Tammer", "061234567"),new Table(1,2), LocalDate.of(2018,6,21)));
-        this.bookingsList.add(new Booking(new Guest("Mo","Salem", "069876543"),new Table(7,2), LocalDate.of(2018,6,21)));
+//
+//        this.bookingsList.add(new Booking(new Guest("Arjan","Tammer", "061234567"),new Table(1,2), new Date(2018,6,21)));
+//        this.bookingsList.add(new Booking(new Guest("Mo","Salem", "069876543"),new Table(7,2), new Date(2018,6,21)));
 
     }
 
@@ -157,7 +157,7 @@ public class Restaurant{
             System.out.println("This table is already booked");
         }
         else{
-            Booking bookingToAdd = new Booking(guest, table);
+            Booking bookingToAdd = new Booking(table, guest);
             this.bookingsList.add(bookingToAdd);
             System.out.println("Booking confirmed for "+guest.getLastName()+", "+guest.getFirstName());
         }

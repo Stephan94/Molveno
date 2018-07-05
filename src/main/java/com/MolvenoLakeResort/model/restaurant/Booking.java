@@ -10,7 +10,7 @@ public class Booking {
     private long id;
     private Guest guest;
     private Table table;
-    private LocalDate date;
+    private Date date;
     private Time time;
 
     public Table getTable() {
@@ -18,15 +18,14 @@ public class Booking {
     }
 
     public Booking(){
-
     }
 
-    public Booking(Guest guest, Table table) {
+    public Booking(Table table, Guest guest) {
         this.guest = guest;
         this.table = table;
     }
 
-    public Booking(Guest guest, Table table, LocalDate date) {
+    public Booking(Guest guest, Table table, Date date) {
         this.guest = guest;
         this.table = table;
         this.date = date;
@@ -68,11 +67,11 @@ public class Booking {
         this.table = table;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return this.date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

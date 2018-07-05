@@ -30,20 +30,27 @@ public class RouteController {
     public String menuItems(Map<String, Object> model) {
         return "menuItems";
     }
-
     @RequestMapping(value="/contact", method = RequestMethod.GET)
     public String contact(Map<String, Object> model) {
         return "contact";
     }
 
+    }
+    @RequestMapping(value="/employeeHomePage", method = RequestMethod.GET)
+    public String employeeHomePage(Map<String, Object> model) {
+        return "employeeHomePage";
+
     @RequestMapping(value="/mainMenu", method = RequestMethod.GET)
     public String mainMenu(Map<String, Object> model) {
         return "mainMenu";
-    }
 
+    @RequestMapping(value="/bookings", method = RequestMethod.GET)
+    public String bookings(Map<String, Object> model) {
+        return "bookings";
+    }
+  
     @RequestMapping(value="/", method = RequestMethod.GET)
     public String index(Map<String, Object> model) {
         return "index";
     }
-
 }

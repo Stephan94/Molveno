@@ -1,10 +1,13 @@
 package com.MolvenoLakeResort.model.restaurant.persistence;
 
 import com.MolvenoLakeResort.model.restaurant.Booking;
+import com.MolvenoLakeResort.model.restaurant.Date;
 import com.MolvenoLakeResort.model.restaurant.Guest;
+import com.MolvenoLakeResort.model.restaurant.Table;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,10 +25,20 @@ public class BookingRepository { //fill repo in sonstructor or controller?
     //  TODO add autowired Table repo and guest repo
     @PostConstruct
     public void preFillRecords(){
-        for (int i = 0; i < 4; i++){
-            this.add(new Booking(guests.findById(i), tables.findById(i) ) );
-        }
+//        for (int i = 0; i < 4; i++){
+//            this.add(new Booking(guests.findById(i), tables.findById(i) ) );
+//        }
+
+//        this.add(new Booking((new Table(4,2)),new Guest("Kim","Bergschen","063339976")));
+//        this.add(new Booking((new Table(7,4)),new Guest("Leila","Bashir","062466982")));
+//        this.add(new Booking((new Table(3,6)),new Guest("Jan","Maas","068559454")));
+
+        this.add(new Booking(new Guest("Kim","Bergschen", "061234567"),new Table(2,2), new Date(LocalDate.of(2018,7,6))));
+        this.add(new Booking(new Guest("Leila","Bashir", "062185743"),new Table(9,2), new Date(LocalDate.of(2018,7,6))));
+        this.add(new Booking(new Guest("Jan","Maas", "064723842"),new Table(7,2),  new Date(LocalDate.of(2018,7,6))));
     }
+
+
 
     public void add(Booking newBooking) {
         newBooking.setId(++lastId);
