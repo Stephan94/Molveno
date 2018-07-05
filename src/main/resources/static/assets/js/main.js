@@ -45,6 +45,13 @@ function fillModal(record){
             $("#firstName").val(record.firstName);
             $("#lastName").val(record.lastName);
             $("#phoneNumber").val(record.phoneNumber);
+			break;
+		case "/bookings":
+			$("#id").val(record.id);
+            $("#table").val(record.table.id);
+            $("#guest").val(record.guest.lastName);
+            $("#date").val(record.date);
+			break;
     }
 }
 
@@ -165,7 +172,20 @@ $( document ).ready(function() {
                 { "data": "lastName" },
                 { "data": "phoneNumber" },
                 {  "render": function(data, type, full){
-                        return '<a title="view this table" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this table" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this table" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
+                        return '<a title="view this guest" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this guest" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this guest" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
+                    } },
+            ];
+            break;
+		case "/bookings":
+            api = 'http://localhost:8080/api/bookings';
+            columns = [
+                { "data": "id" },
+                { "data": "table.id" },
+                { "data": "guest.lastName" },
+                { "data": "guest.phoneNumber" },
+                { "data": "date.date" },
+                {  "render": function(data, type, full){
+                        return '<a title="view this booking" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this booking" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this booking" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
                     } },
             ];
             break;
