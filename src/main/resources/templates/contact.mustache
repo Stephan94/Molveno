@@ -25,7 +25,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="assets/images/Molveno Lake Resort Logo3.png" width="180px" height=auto alt="">
+            <img src="assets/images/Molveno Lake Resort Logo3.png" width="250px" height=auto alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -45,10 +45,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="http://localhost:8080/contact">Contact</a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                </li>
             </ul>
         </div>
     </div>
@@ -58,28 +54,32 @@
 <!-- Page Content -->
 <div class="container-fluid">
     <body>
-
-    <h3 class="mt-5">Contact us</h3>
-    <br/><br/>
-    <p> Molveno Lake Resort<br/>
-        Via Bettega 12<br/>
-        38018 Molveno (Tn)<br/>
-        Italia<br/>
-        molveno.lake.resort@gmail.com<br/>
-    </p>
-    <br/><br/><br/><br/><br/><br/>
-
-
-    <h7> Please leave your e-mail to subscribe for our newsletter: </h7>
-    <br/><br/>
-
-    <form action="" method="get">
-        <label for="email">Email:</label>
-        <input id="email" name="email" type="email"/>
-        <button type="submit"> Submit Form</button>
-    </form>
-
-
+    <div class="container">
+        <h3 class="mt-5" style="text-align:center;">Contact Details</h3>
+    </div>
+    <div class="container card">
+        <div class="row" style="padding-top: 20px;padding-bottom: 20px;">
+            <div class="col-6 flex-box-center" style="text-align: center; padding: 0;">
+                <h3 class="mt-5" style="margin-top:0 !important; margin-bottom:10px;">Molveno Lake Resort</h3>
+                <p>
+                    Via Bettega 12<br/>
+                    38018 Molveno (Tn)<br/>
+                    Italia
+                </p>
+                <a href="molveno.lake.resort@gmail.com">molveno.lake.resort@gmail.com</a>
+                <br/>
+                <h7> To subscribe for our newsletter: </h7>
+                <form action="" method="get">
+                    <label for="email">Email:</label>
+                    <input id="email" name="email" type="email"/>
+                    <button type="submit" class="btn btn-success"> Submit Form</button>
+                </form>
+            </div>
+            <div class="col-6" style="text-align: center; padding: 0;">
+                <img src="assets/images/Molveno_map.jpg" alt="map" style="max-width: 400px; height: auto;">
+            </div>
+        </div>
+    </div>
     </body>
 </div>
 <!-- /.container -->
