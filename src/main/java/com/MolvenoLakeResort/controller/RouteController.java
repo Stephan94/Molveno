@@ -36,9 +36,9 @@ public class RouteController {
         return "contact";
     }
 
-    @RequestMapping(value="/employeeHomePage", method = RequestMethod.GET)
-    public String employeeHomePage(Map<String, Object> model) {
-        return "employeeHomePage";
+    @RequestMapping(value="/mainMenu", method = RequestMethod.GET)
+    public String mainMenu(Map<String, Object> model) {
+        return "mainMenu";
     }
 
     @RequestMapping(value="/", method = RequestMethod.GET)

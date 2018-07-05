@@ -115,15 +115,25 @@ function submitDelete(id, api){
 }
 
 function navbarHighlight(path){
-    alert(path)
     switch(path) {
         case "/tables":
-          $("#")
+          $("#navTables").addClass("active");
             break;
-        case "/guests":
 
+        case "/guests":
+            $("#navGuests").addClass("active");
+            break;
+
+        case "/bookings":
+            $("#navBookings").addClass("active");
+            break;
+
+        case "/employeeHomePage":
+            $("#navEmployee").addClass("active");
+            break;
+
+        default:
+            $("#navHome").addClass("active");
             break;
     }
-
-
 }
