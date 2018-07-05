@@ -1,14 +1,16 @@
 package com.MolvenoLakeResort.model.restaurant.persistence;
 
 import com.MolvenoLakeResort.model.restaurant.Ingredient;
+import com.MolvenoLakeResort.model.restaurant.MenuItem;
 import com.MolvenoLakeResort.model.restaurant.Table;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
+import javax.persistence.CascadeType;
+import javax.persistence.ManyToMany;
 import javax.persistence.criteria.CriteriaBuilder;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
 @Repository
 public class IngredientRepository {
 
@@ -18,10 +20,23 @@ public class IngredientRepository {
     @PostConstruct
     public void preFillRecords() {
 
-        this.add(new Ingredient("Sugar", 1, 1.0));
-        this.add(new Ingredient("Cheese", 2, 2.0));
-        this.add(new Ingredient("Salt",3,0.5));
+        this.add(new Ingredient("pasta", 1, 2.00));
+        this.add(new Ingredient("ricotta", 2, 2.50));
+        this.add(new Ingredient("garlic",3,0.70));
+        this.add(new Ingredient("vinegar",4,0.50));
+        this.add(new Ingredient("tomato",5,0.90));
+        this.add(new Ingredient("parmesan",6,2.50));
+        this.add(new Ingredient("mushrooms",7,1.00));
+        this.add(new Ingredient("rice",8,1.00));
+        this.add(new Ingredient("chicken",9,3.00));
+        this.add(new Ingredient("pork",10,4.00));
+        this.add(new Ingredient("beef",11,6.00));
     }
+
+    /*
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<MenuItem> menuItemList = new ArrayList<>();
+    */
 
     public void add(Ingredient newIngredient) {
         newIngredient.setId(++lastId);
