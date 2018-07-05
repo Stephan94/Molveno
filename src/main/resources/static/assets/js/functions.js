@@ -128,7 +128,7 @@ function navbarHighlight(path){
             $("#navBookings").addClass("active");
             break;
 
-        case "/employeeHomePage":
+        case "/mainMenu":
             $("#navEmployee").addClass("active");
             break;
 
