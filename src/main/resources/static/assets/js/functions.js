@@ -113,3 +113,27 @@ function submitDelete(id, api){
     $('#myModal').modal('toggle');
     deselect();
 }
+
+function navbarHighlight(path){
+    switch(path) {
+        case "/tables":
+          $("#navTables").addClass("active");
+            break;
+
+        case "/guests":
+            $("#navGuests").addClass("active");
+            break;
+
+        case "/bookings":
+            $("#navBookings").addClass("active");
+            break;
+
+        case "/mainMenu":
+            $("#navEmployee").addClass("active");
+            break;
+
+        default:
+            $("#navHome").addClass("active");
+            break;
+    }
+}

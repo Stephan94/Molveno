@@ -1,13 +1,12 @@
-
-
-
 $( document ).ready(function() {
 
     var path = String(window.location.pathname);
     var api;
     var columns;
 
+    navbarHighlight(path);
 
+    // deduce API path from url, Build JSON for dataTable
     switch(path) {
         case "/tables":
             api = 'http://localhost:8080/api/tables';
@@ -43,6 +42,7 @@ $( document ).ready(function() {
                 {  "render": function(data, type, full){
                         return '<a title="view this booking" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this booking" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this booking" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
                     } },
+                } },
             ];
             break;
     }
@@ -73,8 +73,3 @@ $( document ).ready(function() {
     });
 
 });
-
-
-
-
-
