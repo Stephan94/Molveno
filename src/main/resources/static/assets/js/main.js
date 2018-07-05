@@ -4,7 +4,9 @@ $( document ).ready(function() {
     var api;
     var columns;
 
+    navbarHighlight(path);
 
+    // deduce API path from url, Build JSON for dataTable
     switch(path) {
         case "/tables":
             api = 'http://localhost:8080/api/tables';
@@ -26,7 +28,7 @@ $( document ).ready(function() {
                 { "data": "phoneNumber" },
                 {  "render": function(data, type, full){
                         return '<a title="view this table" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this table" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this table" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
-                    } },
+                } },
             ];
             break;
     }

@@ -114,16 +114,26 @@ function submitDelete(id, api){
     deselect();
 }
 
-function buildJsonObject(path){
+function navbarHighlight(path){
+    switch(path) {
+        case "/tables":
+          $("#navTables").addClass("active");
+            break;
 
-    swtich(path){
-        case: "/guests"
-        return {
-            firstName: $("#firstName").val(),
-            lastName: $("#lastName").val(),
-            phoneNumber: $("#phoneNumber").val()
-        };
+        case "/guests":
+            $("#navGuests").addClass("active");
+            break;
+
+        case "/bookings":
+            $("#navBookings").addClass("active");
+            break;
+
+        case "/mainMenu":
+            $("#navEmployee").addClass("active");
+            break;
+
+        default:
+            $("#navHome").addClass("active");
+            break;
     }
-
-
 }
