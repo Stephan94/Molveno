@@ -1,6 +1,3 @@
-
-
-
 $( document ).ready(function() {
 
     var path = String(window.location.pathname);
@@ -60,8 +57,3 @@ $( document ).ready(function() {
     });
 
 });
-
-
-
-
-

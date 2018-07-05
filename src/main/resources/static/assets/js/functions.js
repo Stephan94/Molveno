@@ -113,3 +113,17 @@ function submitDelete(id, api){
     $('#myModal').modal('toggle');
     deselect();
 }
+
+function navbarHighlight(path){
+    alert(path)
+    switch(path) {
+        case "/tables":
+          $("#")
+            break;
+        case "/guests":
+
+            break;
+    }
+
+
+}
