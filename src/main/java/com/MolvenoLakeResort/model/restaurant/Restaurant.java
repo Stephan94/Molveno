@@ -36,8 +36,8 @@ public class Restaurant{
         this.guests.add(new Guest("Arjan", "Tammer", "061234567" ));
         this.guests.add(new Guest("Mo", "Salem", "069876543"));
 
-
-
+//        this.bookingsList.add(new Booking(new Guest("Arjan","Tammer", "061234567"),new Table(1,2), new Date(2018,6,21)));
+//        this.bookingsList.add(new Booking(new Guest("Mo","Salem", "069876543"),new Table(7,2), new Date(2018,6,21)));
     }
 
     public void showAllAvailableTables() {
@@ -112,9 +112,7 @@ public class Restaurant{
 
                 //Once it finds all the table sizes that match capacityForBiggerTable, then it stops searching
                 if (availableTablesBySearch.size() != 0){
-
                     hasFoundResult = true;
-
                 }
 
             } while (!hasFoundResult && capacityForBiggerTable <= 9);
@@ -122,11 +120,8 @@ public class Restaurant{
         }
 
         if (availableTablesBySearch.size() == 0) {
-
             System.out.println("There's no table for " + capacity + " guests or more available.");
-
         }
-
         return availableTablesBySearch;
     }
 
@@ -138,10 +133,6 @@ public class Restaurant{
         }
         return null;
     }
-
-
-
-
 
     public List<Table> getTables() {
         return this.tables;
@@ -203,14 +194,10 @@ public class Restaurant{
 
         for (Guest guest : guests) {
             System.out.println("Guest " + guest.getFirstName() + " " + guest.getLastName() + " is on this guest getAllBookings");
-
-
         }
     }
 
     // Setters and setter
-
-
     public List<Guest> getGuests() {
         return this.guests;
     }
@@ -218,9 +205,6 @@ public class Restaurant{
     public void setGuests(List<Guest> guests) {
         this.guests = guests;
     }
-
-
-
 }
 
 

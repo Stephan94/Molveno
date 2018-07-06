@@ -12,12 +12,13 @@ public class Booking {
     private long id;
     private Guest guest;
     private Table table;
+
+    private Date date;
     private Time time;
     private GregorianCalendar date;
 
-
     public Table getTable() {
-        return table;
+        return this.table;
     }
 
     public Booking(){
@@ -27,8 +28,8 @@ public class Booking {
         this.guest = guest;
         this.table = table;
     }
-
-    public Booking(Table table, Guest guest, GregorianCalendar date) {
+  
+    public Booking(Guest guest, Table table, Date date) {
         this.guest = guest;
         this.table = table;
         this.date = date;
@@ -47,8 +48,6 @@ public class Booking {
 
         return Objects.hash(table);
     }
-
-
 
     public long getId() {
         return this.id;
@@ -70,11 +69,11 @@ public class Booking {
         this.table = table;
     }
 
-    public GregorianCalendar getDate() {
+    public Date getDate() {
         return this.date;
     }
 
-    public void setDate(GregorianCalendar date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
