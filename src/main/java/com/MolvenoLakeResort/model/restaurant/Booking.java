@@ -15,7 +15,7 @@ public class Booking {
 
     private Date date;
     private Time time;
-    private GregorianCalendar date;
+    //private GregorianCalendar date;
 
     public Table getTable() {
         return this.table;
