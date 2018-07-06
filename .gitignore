@@ -56,3 +56,7 @@ fabric.properties
 *.iml
 target/
 
+
+#application.properties file
+application..properties
+
