@@ -63,6 +63,17 @@ function fillModal(record){
             $("#firstName").val(record.firstName);
             $("#lastName").val(record.lastName);
             $("#phoneNumber").val(record.phoneNumber);
+            case "/bookings":
+            $("#id").val(record.id);
+            $("#tableNumber").val(record.table.id);
+            $("#lastName").val(record.guest.lastName);
+            $("#phoneNumber").val(record.guest.phoneNumber);
+            break;
+            case "/addBooking":
+            $("#capacity").val(record.table.capacity);
+            $("#lastName").val(record.guest.lastName);
+            $("#phoneNumber").val(record.guest.phoneNumber);
+            break;
     }
 }
 
@@ -89,7 +100,7 @@ function submitEdit(id, api){
         data: JSON.stringify(formData),
         contentType: "application/json; charset=utf-8",
         success: getData(api),
-        error: function(erro){
+        error: function(error){
             console.log(error);
         }
     });
