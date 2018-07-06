@@ -36,7 +36,6 @@ public class RouteController {
         return "contact";
     }
 
-  
     @RequestMapping(value="/bookings", method = RequestMethod.GET)
     public String bookings(Map<String, Object> model) {
         return "bookings";
@@ -55,11 +54,6 @@ public class RouteController {
     @RequestMapping(value="/addBooking", method = RequestMethod.GET)
     public String addBooking(Map<String, Object> model) {
         return "addBooking"; 
-    }
-
-    @RequestMapping(value="/bookings", method = RequestMethod.GET)
-    public String bookings(Map<String, Object> model) {
-        return "bookings";
     }
   
     @RequestMapping(value="/", method = RequestMethod.GET)
