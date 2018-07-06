@@ -1,0 +1,51 @@
+{{> header}}
+
+<!-- Page Content -->
+<div class="container-fluid">
+    <h1 class="mt-5">List of bookings</h1>
+
+    <table id="dataTable" class="display table-hover">
+        <thead>
+        <tr>
+            <th>Booking ID</th>
+            <th>Table number</th>
+            <th>Last name</th>
+            <th>Telephone number</th>
+            <th>Options</th>
+        </tr>
+        </thead>
+    </table>
+
+    <div class="modal fade" id="modal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" onclick="deselect()" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title" id="modal-title">Title</h3>
+                </div>
+                <div class="modal-body">
+                    <form id="modalForm" enctype='text/plain'>
+                        ID:<br>
+                        <input type='text' class="form-control" name='id' id="id"><br>
+                        Table number:<br>
+                        <input type='text' class="form-control" name='tableNumber' id="tableNumber"><br>
+                        Last name: <br>
+                        <input type='text' class="form-control" name='lastName' id="lastName"><br>
+                        Telephone number:
+                        <input type='text' class="form-control" name='phoneNumber' id="phoneNumber"><br>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="btnsubmit">Submit</button>
+                    <a href="#" id="confirmbutton" data-title="Are you sure" data-trigger="focus" data-toggle="clickover" data-placement="top" class="btn btn-danger">Delete</a>
+                    <button type="button" class="btn btn-default" id="btnclose" onclick="deselect()" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container -->
+
+{{> footer}}
