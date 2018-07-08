@@ -1,32 +1,36 @@
 package com.MolvenoLakeResort.model.restaurant;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Objects;
 
 
-public class Booking {
+public class Booking implements Serializable {
 
     private long id;
     private Guest guest;
     private Table table;
-    private LocalDate date;
+
+    private Date date;
     private Time time;
+    //private GregorianCalendar date;
 
     public Table getTable() {
-        return table;
+        return this.table;
     }
 
     public Booking(){
-
     }
 
-    public Booking(Guest guest, Table table) {
+    public Booking(Table table, Guest guest) {
         this.guest = guest;
         this.table = table;
     }
-
-    public Booking(Guest guest, Table table, LocalDate date) {
+  
+    public Booking(Guest guest, Table table, Date date) {
         this.guest = guest;
         this.table = table;
         this.date = date;
@@ -45,8 +49,6 @@ public class Booking {
 
         return Objects.hash(table);
     }
-
-
 
     public long getId() {
         return this.id;
@@ -68,11 +70,11 @@ public class Booking {
         this.table = table;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return this.date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

@@ -2,21 +2,18 @@
 
 <!-- Page Content -->
 <div class="container-fluid">
-    <h1 class="mt-5">List of guests</h1>
-
-    <i class="fa fa-plus fa-2x btn" id="addButton"></i>
+    <h1 class="mt-5">List of bookings</h1>
 
     <table id="dataTable" class="display table-hover">
         <thead>
         <tr>
-            <th>GuestID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Booking ID</th>
+            <th>Table number</th>
+            <th>Last name</th>
             <th>Telephone number</th>
             <th>Options</th>
         </tr>
         </thead>
-
     </table>
 
     <div class="modal fade" id="modal" role="dialog">
@@ -30,18 +27,17 @@
                     <form id="modalForm" enctype='text/plain'>
                         ID:<br>
                         <input type='text' class="form-control" name='id' id="id"><br>
-                        First Name:<br>
-                        <input type='text' class="form-control" name='firstName' id="firstName"><br>
-                        Last Name: <br>
+                        Table number:<br>
+                        <input type='text' class="form-control" name='tableNumber' id="tableNumber"><br>
+                        Last name: <br>
                         <input type='text' class="form-control" name='lastName' id="lastName"><br>
-                        Telephone Number:
+                        Telephone number:
                         <input type='text' class="form-control" name='phoneNumber' id="phoneNumber"><br>
                     </form>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary d-none" id="btncreate">Submit</button><!-- button for new record -->
-                    <button type="button" class="btn btn-primary" id="btnsubmit">Submit</button><!-- button for existing record -->
+                    <button type="button" class="btn btn-primary" id="btnsubmit">Submit</button>
                     <a href="#" id="confirmbutton" data-title="Are you sure" data-trigger="focus" data-toggle="clickover" data-placement="top" class="btn btn-danger">Delete</a>
                     <button type="button" class="btn btn-default" id="btnclose" onclick="deselect()" data-dismiss="modal">Close</button>
                 </div>
