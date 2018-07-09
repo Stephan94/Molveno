@@ -36,6 +36,7 @@ import java.util.List;
 
     @PutMapping("{id}")
     public Booking updateById(@PathVariable long id, @RequestBody Booking update){
+        System.out.println(update);
         return this.bookingsRepository.update(id, update);
     }
 
