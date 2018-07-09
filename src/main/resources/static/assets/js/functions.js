@@ -101,7 +101,13 @@ function submitEdit(id, api){
        if(formData[key] == "" || formData == null) delete formData[key];
    }
 
-   var JSONObjectInString =    {
+   var JSONObjectInString;
+
+
+       var path = window.location.path;
+
+
+       {
                          "id": id,
                          "guest": {
                              "id": guestid.value,
