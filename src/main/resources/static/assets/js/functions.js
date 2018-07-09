@@ -3,17 +3,12 @@ function getData(api) {
    api = String(api);
    $.get(api, function(data){
        if (data){
-           setData(data);
-           window.location.reload(); // TODO clean up
+            $("#dataTable").DataTable().clear();
+            $("#dataTable").DataTable().rows.add(data);
+            $("#dataTable").DataTable().columns.adjust().draw();
+            window.location.reload(); // TODO clean up
        }
    });
-}
-
-
-function setData(data){
-   $("#dataTable").DataTable().clear();
-   $("#dataTable").DataTable().rows.add(data);
-   $("#dataTable").DataTable().columns.adjust().draw();
 }
 
 
@@ -75,8 +70,9 @@ function fillModal(record){
            $("#lastName").val(record.guest.lastName);
            $("#phoneNumber").val(record.guest.phoneNumber);
            break;
-           }
-       }
+   }
+
+}
 
 function deselect(){
    $('#dataTable tr.selected').removeClass('selected');
@@ -147,4 +143,30 @@ function navbarHighlight(path){
            $("#navHome").addClass("active");
            break;
    }
+}
+
+function submitNew(api){
+   console.log("Formdata");
+   var formData = $("#modalForm").serializeArray().reduce(function(result, object){ result[object.name] = object.value; return result}, {});
+   console.log(formData);
+   //var id = formData.id;
+   for(var key in formData){
+       if(formData[key] == "" || formData == null) delete formData[key];
+   }
+
+   console.log(JSON.stringify(formData));
+
+   $.ajax({
+       url: api,
+       type:"post",
+       data: JSON.stringify(formData),
+       contentType: "application/json; charset=utf-8",
+       success: getData(api),
+       error: function(error){
+           console.log(error);
+       }
+   });
+
+   deselect();
+   $('#modal').modal('toggle');
 }

@@ -4,6 +4,8 @@
     <div class="container-fluid">
         <h1 class="mt-5">List of tables</h1>
 
+        <i class="fa fa-plus btn" id="addBtn"></i>
+
         <table id="dataTable" class="display table-hover">
             <thead>
                 <tr>
@@ -12,8 +14,6 @@
                     <th>Options</th>
                 </tr>
             </thead>
-
-
         </table>
 
         <div class="modal fade" id="modal" role="dialog">
@@ -26,7 +26,7 @@
                     <div class="modal-body">
                         <form id="modalForm" enctype='text/plain'>
                             ID:<br>
-                            <input type='text' class="form-control" name='id' id="id"><br>
+                            <input type='text' class="form-control" name='id' id="id" disabled><br>
                             Capacity:<br>
                             <input type='text' class="form-control" name='capacity' id="capacity"><br>
                          </form>
@@ -34,6 +34,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" id="btnsubmit">Submit</button>
+                        <!--<button type="button" class="btn btn-primary" id="btnNewEntry">Create</button>-->
                         <a href="#" id="confirmbutton" data-title="Are you sure" data-trigger="focus" data-toggle="clickover" data-placement="top" class="btn btn-danger">Delete</a>
                         <button type="button" class="btn btn-default" id="btnclose" onclick="deselect()" data-dismiss="modal">Close</button>
                     </div>
@@ -42,10 +43,6 @@
         </div>
 
 
-
-
-
     </div>
     <!-- /.container -->
-
 {{> footer}}
