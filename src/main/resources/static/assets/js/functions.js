@@ -66,9 +66,14 @@ function fillModal(record){
            break;
        case "/bookings":
            $("#id").val(record.id);
-           $("#tableNumber").val(record.table.id);
-           $("#lastName").val(record.guest.lastName);
+           $("#guestid").val(record.guest.id);
+           $("#guestFirstName").val(record.guest.firstName);
+           $("#guestLastName").val(record.guest.lastName);
            $("#phoneNumber").val(record.guest.phoneNumber);
+           $("#tableNumber").val(record.table.id);
+           $("#tableCapacity").val(record.table.capacity);
+           $("#bookingDate").val(record.date);
+           $("#bookingTime").val(record.time);
            break;
        case "/addBooking":
            $("#capacity").val(record.table.capacity);
@@ -87,6 +92,7 @@ function deselect(){
 
 function submitEdit(id, api){
 // shortcut for filling the formData as a JavaScript object with the fields in the form
+
    console.log("Formdata");
    var formData = $("#modalForm").serializeArray().reduce(function(result, object){ result[object.name] = object.value; return result}, {});
    console.log(formData);
@@ -94,10 +100,27 @@ function submitEdit(id, api){
    for(var key in formData){
        if(formData[key] == "" || formData == null) delete formData[key];
    }
+
+   var JSONObjectInString =    {
+                         "id": id,
+                         "guest": {
+                             "id": guestid.value,
+                             "firstName": guestFirstName.value,
+                             "lastName": guestLastName.value,
+                             "phoneNumber": phoneNumber.value
+                         },
+                         "table": {
+                             "id": tableNumber.value,
+                             "capacity": tableCapacity.value
+                         },
+                         "date": null,
+                         "time": null
+                     }
+
    $.ajax({
        url: api + "/" + id,
        type:"put",
-       data: JSON.stringify(formData),
+       data: JSON.stringify(JSONObjectInString),
        contentType: "application/json; charset=utf-8",
        success: getData(api),
        error: function(error){
