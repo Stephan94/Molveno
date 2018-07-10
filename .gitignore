@@ -31,8 +31,6 @@ cmake-build-release/
 # File-based project format
 *.iws
 
-application.properties
-
 # IntelliJ
 out/
 
@@ -58,4 +56,7 @@ fabric.properties
 *.iml
 target/
 
+
+#application.properties file
 application.properties
+
