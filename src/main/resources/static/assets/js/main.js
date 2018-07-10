@@ -68,4 +68,12 @@ $( document ).ready(function() {
            $('#modal').modal('toggle');
        }
    });
+
+
+   $("#addBtn").on( 'click', function (){
+        $("#btnsubmit").attr('onclick', 'submitNew("' + api +'");');
+        $('#modal').modal('toggle');
+        document.getElementById("modalForm").reset();
+  });
+
 });

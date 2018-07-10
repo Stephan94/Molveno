@@ -36,9 +36,11 @@ public class BookingRepository { //fill repo in constructor or controller?
 //        this.add(new Booking((new Table(3,6)),new Guest("Jan","Maas","068559454")));
 
 //        this.add(new Booking(new Guest("Kim","Bergschen", "061234567"),new Table(2,2), new Date(LocalDate.of(2018,7,6))));
-//        this.add(new Booking(new Guest("Leila","Bashir", "062185743"),new Table(9,2), new Date(LocalDate.of(2018,7,6))));
+//        this.add(new Booking0(new Guest("Leila","Bashir", "062185743"),new Table(9,2), new Date(LocalDate.of(2018,7,6))));
 //        this.add(new Booking(new Guest("Jan","Maas", "064723842"),new Table(7,2),  new Date(LocalDate.of(2018,7,6))));
     }
+
+
 
     public void add(Booking newBooking) {
         newBooking.setId(++lastId);
