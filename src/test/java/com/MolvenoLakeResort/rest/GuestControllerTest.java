@@ -37,11 +37,13 @@ public class GuestControllerTest {
         Mockito.when(this.guestRepository.findByFirstName("Donald")).thenReturn(g2);
         Mockito.when((this.guestRepository.save(g))).thenReturn(g2);
 
+		// When
         ResponseEntity<Guest> responseFromController = this.controller.create(g);
 
+
+		// Then
         Assert.assertNotNull(responseFromController.getBody());
         Assert.assertEquals(3, responseFromController.getBody().getId());
-
         Assert.assertEquals(HttpStatus.CREATED, responseFromController.getStatusCode());
     }
 
@@ -61,11 +63,13 @@ public class GuestControllerTest {
         Mockito.when(this.guestRepository.findByFirstName("Donald")).thenReturn(null);
         Mockito.when((this.guestRepository.save(g))).thenReturn(g2);
 
+		// When
         ResponseEntity<Guest> responseFromController = this.controller.create(g);
 
+
+		// Then
         Assert.assertNotNull(responseFromController.getBody());
         Assert.assertEquals(3, responseFromController.getBody().getId());
-
         Assert.assertEquals(HttpStatus.CREATED, responseFromController.getStatusCode());
     }
 
@@ -77,17 +81,13 @@ public class GuestControllerTest {
         g.setFirstName("Donald");
         g.setLastName("Duck");
 
-        Guest g2 = new Guest();
-        g2.setFirstName("Donald");
-        g2.setLastName("Trump");
-        g2.setId(3);
-
         Mockito.when(this.guestRepository.findByFirstName("Donald")).thenReturn(g);
 
+		// When
         ResponseEntity<Guest> responseFromController = this.controller.create(g);
 
+		// Then
         Assert.assertNull(responseFromController.getBody());
-
         Assert.assertEquals(HttpStatus.CONFLICT, responseFromController.getStatusCode());
     }
 }
