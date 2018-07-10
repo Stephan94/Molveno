@@ -32,7 +32,7 @@ public class BookingController {
 
         // compare input firstname and lastname to guestrepo
 
-        this.guestRepository.findByFirstNameAndLAstName();
+       // this.guestRepository.findByFirstNameAndLAstName();
 
         newBooking.getGuest().getFirstName();
         newBooking.getGuest().getLastName();
@@ -108,7 +108,7 @@ public class BookingController {
             return new ResponseEntity<Booking>(this.bookingsRepository.save(directObject),
                     HttpStatus.OK);
         } else {
-            return new ResponseEntity<Booking>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
