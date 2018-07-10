@@ -31,6 +31,7 @@ $( document ).ready(function() {
                } },
            ];
            break;
+       
         case "/bookings":
            api = 'http://localhost:8080/api/bookings';
            columns = [
@@ -41,8 +42,10 @@ $( document ).ready(function() {
                {  "render": function(data, type, full){
                        return '<a title="view this booking" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this booking" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this booking" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
                } },
-           ];
-        }
+
+            break;
+      }
+
 
    $('#dataTable').DataTable( {
        "order": [[ 0, "asc" ]],
@@ -66,4 +69,12 @@ $( document ).ready(function() {
            $('#modal').modal('toggle');
        }
    });
+
+
+   $("#addBtn").on( 'click', function (){
+        $("#btnsubmit").attr('onclick', 'submitNew("' + api +'");');
+        $('#modal').modal('toggle');
+        document.getElementById("modalForm").reset();
+  });
+
 });

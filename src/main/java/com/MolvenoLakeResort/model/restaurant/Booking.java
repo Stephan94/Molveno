@@ -1,23 +1,34 @@
 package com.MolvenoLakeResort.model.restaurant;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Objects;
 
+@Entity
+public class Booking implements Serializable {
 
-public class Booking {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private Guest guest;
-    private Table table;
-    private Time time;
-    private GregorianCalendar date;
 
+    @ManyToOne
+    private Guest guest;
+
+    @ManyToOne
+    private Table table;
+
+
+    private LocalDate date;
+
+
+    private Time time;
 
     public Table getTable() {
-        return table;
+        return this.table;
     }
 
     public Booking(){
@@ -28,7 +39,7 @@ public class Booking {
         this.table = table;
     }
 
-    public Booking(Table table, Guest guest, GregorianCalendar date) {
+    public Booking(Guest guest, Table table, LocalDate date) {
         this.guest = guest;
         this.table = table;
         this.date = date;
@@ -47,8 +58,6 @@ public class Booking {
 
         return Objects.hash(table);
     }
-
-
 
     public long getId() {
         return this.id;
@@ -70,11 +79,11 @@ public class Booking {
         this.table = table;
     }
 
-    public GregorianCalendar getDate() {
+    public LocalDate getDate() {
         return this.date;
     }
 
-    public void setDate(GregorianCalendar date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -84,5 +93,16 @@ public class Booking {
 
     public void setTime(Time time) {
         this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "id=" + id +
+                ", guest=" + guest +
+                ", table=" + table +
+                ", date=" + date +
+                ", time=" + time +
+                '}';
     }
 }

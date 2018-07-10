@@ -4,6 +4,9 @@
 <div class="container-fluid">
     <h1 class="mt-5">List of guests</h1>
 
+    <i class="fa fa-plus btn" id="addBtn"></i>
+
+
     <table id="dataTable" class="display table-hover">
         <thead>
         <tr>
@@ -15,15 +18,6 @@
         </tr>
         </thead>
 
-        <tfoot>
-        <tr>
-            <th>Guest(ID)</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Telephone number</th>
-            <th>Options</th>
-        </tr>
-        </tfoot>
     </table>
 
     <div class="modal fade" id="modal" role="dialog">
@@ -36,7 +30,7 @@
                 <div class="modal-body">
                     <form id="modalForm" enctype='text/plain'>
                         ID:<br>
-                        <input type='text' class="form-control" name='id' id="id"><br>
+                        <input type='text' class="form-control" name='id' id="id" ><br>
                         First Name:<br>
                         <input type='text' class="form-control" name='firstName' id="firstName"><br>
                         Last Name: <br>

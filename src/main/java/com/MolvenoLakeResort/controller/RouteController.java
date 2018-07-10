@@ -28,7 +28,8 @@ public class RouteController {
 
     @RequestMapping(value="/menuItems", method = RequestMethod.GET)
     public String menuItems(Map<String, Object> model) {
-        return "menuItems"; }
+        return "menuItems";
+    }
 
     @RequestMapping(value="/contact", method = RequestMethod.GET)
     public String contact(Map<String, Object> model) {
@@ -42,17 +43,21 @@ public class RouteController {
 
     @RequestMapping(value="/employeeHomePage", method = RequestMethod.GET)
     public String employeeHomePage(Map<String, Object> model) {
-        return "employeeHomePage";}
+        return "employeeHomePage";
+    }
 
     @RequestMapping(value="/mainMenu", method = RequestMethod.GET)
     public String mainMenu(Map<String, Object> model) {
-        return "mainMenu"; }
+        return "mainMenu"; 
+    }
 
     @RequestMapping(value="/addBooking", method = RequestMethod.GET)
     public String addBooking(Map<String, Object> model) {
-        return "addBooking"; }
-
+        return "addBooking"; 
+    }
+  
     @RequestMapping(value="/", method = RequestMethod.GET)
     public String index(Map<String, Object> model) {
-        return "index"; }
+        return "index";
+    }
 }
