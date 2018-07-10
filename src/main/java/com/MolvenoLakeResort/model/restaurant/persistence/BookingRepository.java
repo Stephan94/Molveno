@@ -24,9 +24,9 @@ public class BookingRepository { //fill repo in constructor or controller?
 //            this.add(new Booking(guests.findById(i), tables.findById(i) ) );
 //        }
 
-        this.add(new Booking((new Table(2,2)),new Guest("Test","Test","06186793884")));
-        this.add(new Booking((new Table(9,4)),new Guest("Test2","Test2","06186793885")));
-        this.add(new Booking((new Table(7,6)),new Guest("Test3","Test3","06186793881")));
+//        this.add(new Booking((new Table(2,2)),new Guest("Test","Test","06186793884")));
+//        this.add(new Booking((new Table(9,4)),new Guest("Test2","Test2","06186793885")));
+//        this.add(new Booking((new Table(7,6)),new Guest("Test3","Test3","06186793881")));
 
 //        this.add(new Booking((new Table(3,6)),new Guest("Test3","Test3","06186793881"),new GregorianCalendar(2018 + 1900,10,10)));
 

@@ -10,11 +10,10 @@ public class Table implements Serializable, Comparable<Table> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     private int capacity;
 
-    public Table(long ID, int capacity){
-        this.id = ID;
+    public Table(long id, int capacity){
+        this.id = id;
 
         this.capacity = capacity;
     }

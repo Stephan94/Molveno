@@ -20,17 +20,17 @@ public class Restaurant{
     }
 
     private void setUp() {
-        this.tables.add(new Table(1, 2));
-        this.tables.add(new Table(2, 4));
-        this.tables.add(new Table(3, 6));
-        this.tables.add(new Table(4, 8));
-        this.tables.add(new Table(5, 2));
-        this.tables.add(new Table(6, 4));
-        this.tables.add(new Table(7, 6));
-        this.tables.add(new Table(8, 8));
-        this.tables.add(new Table(9, 2));
-        this.tables.add(new Table(10, 2));
-        this.tables.add(new Table(11, 4));
+//        this.tables.add(new Table(1, 2));
+//        this.tables.add(new Table(2, 4));
+//        this.tables.add(new Table(3, 6));
+//        this.tables.add(new Table(4, 8));
+//        this.tables.add(new Table(5, 2));
+//        this.tables.add(new Table(6, 4));
+//        this.tables.add(new Table(7, 6));
+//        this.tables.add(new Table(8, 8));
+//        this.tables.add(new Table(9, 2));
+//        this.tables.add(new Table(10, 2));
+//        this.tables.add(new Table(11, 4));
 
         this.guests.add(new Guest("Raymond", "Loman", "067794345"));
         this.guests.add(new Guest("Arjan", "Tammer", "061234567" ));

@@ -18,13 +18,14 @@ public class TableController {
     private TableRepository tableRepository;
 
     @PostMapping
-    public ResponseEntity<Table> create(@RequestBody Table newTable){
+    public ResponseEntity<Table> create(@RequestBody Table newTable) {
+
         this.tableRepository.save(newTable);
-        return new ResponseEntity<Table>(newTable, HttpStatus.OK);
+        return new ResponseEntity<Table>(newTable, HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<Iterable<Table>> list(){
+    public ResponseEntity<Iterable<Table>> list() {
         return new ResponseEntity<Iterable<Table>>(this.tableRepository.findAll(), HttpStatus.OK);
     }
 
@@ -36,73 +37,68 @@ public class TableController {
         if (result.isPresent()) {
             return new ResponseEntity<Table>(result.get(), HttpStatus.OK);
         } else {
-            return new ResponseEntity<Table>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Table> updateById(@PathVariable long id, @RequestBody Table update){
+    public ResponseEntity<Table> updateById(@PathVariable long id, @RequestBody Table update) {
 
         Optional<Table> possibleVictim = (this.tableRepository.findById(id));
 
-        if (possibleVictim.isPresent()){
+        if (possibleVictim.isPresent()) {
             Table victim = possibleVictim.get();
 
-            victim.setId(update.getId());
             victim.setCapacity(update.getCapacity());
 
-//            victim = this.tableRepository.save(victim);
+            return new ResponseEntity<Table>(this.tableRepository.save(victim), HttpStatus.OK);
 
-            return new ResponseEntity<Table>(this.tableRepository.save(victim),HttpStatus.OK);
-
-        }else{
-            return new ResponseEntity<Table>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Table> deleteById(@PathVariable long id){
+    public ResponseEntity<Table> deleteById(@PathVariable long id) {
 
         Optional<Table> result = (this.tableRepository.findById(id));
 
-        if (result.isPresent()){
+        if (result.isPresent()) {
             this.tableRepository.deleteById(id);
         }
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-
-    @GetMapping("{capacity}")
-    public ResponseEntity<Table> findByCapacity(@PathVariable int capacity) {
-
-        Optional<Table> result = Optional.ofNullable(this.tableRepository.findByCapacity(capacity));
-
-        Table tableCapacity4 = this.tableRepository.findByCapacity(4);
-
-        if (result.isPresent()) {
-            return new ResponseEntity<Table>(result.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<Table>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @PutMapping("{capacity}")
-    public ResponseEntity<Table> updateByCapacity(@PathVariable int capacity, @RequestBody Table update){
-
-        Optional<Table> possibleVictim = Optional.ofNullable(this.tableRepository.findByCapacity(capacity));
-
-        if (possibleVictim.isPresent()){
-            Table victim = possibleVictim.get();
-
-            victim.setId(update.getId());
-            victim.setCapacity(update.getCapacity());
-
-            victim = this.tableRepository.save(victim);
-
-            return new ResponseEntity<Table>(this.tableRepository.save(victim),HttpStatus.OK);
-
-        }else{
-            return new ResponseEntity<Table>(HttpStatus.NOT_FOUND);
-        }
-    }
 }
+
+
+//    @GetMapping("{capacity}")
+//    public ResponseEntity<Table> findByCapacity(@PathVariable int capacity) {
+//      Optional <Table> result = this.tableRepository.findByCapacity(capacity);
+//
+//        if (result.isPresent()) {
+//            return new ResponseEntity<Table>(result.get(), HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
+//
+//    @PutMapping("{capacity}")
+//    public ResponseEntity<Table> updateByCapacity(@PathVariable int capacity, @RequestBody Table update){
+//
+//        Optional<Table> possibleVictim = (this.tableRepository.findByCapacity(capacity));
+//
+//        if (possibleVictim.isPresent()){
+//            Table victim = possibleVictim.get();
+//
+//            victim.setId(update.getId());
+//            victim.setCapacity(update.getCapacity());
+//
+//            victim = this.tableRepository.save(victim);
+//
+//            return new ResponseEntity<Table>(this.tableRepository.save(victim),HttpStatus.OK);
+//
+//        }else{
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
+//}
