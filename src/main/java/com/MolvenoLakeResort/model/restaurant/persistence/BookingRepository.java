@@ -15,7 +15,8 @@ public class BookingRepository { //fill repo in constructor or controller?
     private Map<Long, Booking> bookings = new HashMap<>();
     private static long lastId = 0;
 
-    private GuestRepository guests = new GuestRepository();
+    // Sanne: GuestRepository cannot be extended because it's an interface now
+    // private GuestRepository guests = new GuestRepository();
     private TableRepository tables = new TableRepository();
 
     //  TODO add autowired Table repo and guest repo
