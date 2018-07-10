@@ -20,25 +20,24 @@ public class Restaurant{
     }
 
     private void setUp() {
-        this.tables.add(new Table(1, 2));
-        this.tables.add(new Table(2, 4));
-        this.tables.add(new Table(3, 6));
-        this.tables.add(new Table(4, 8));
-        this.tables.add(new Table(5, 2));
-        this.tables.add(new Table(6, 4));
-        this.tables.add(new Table(7, 6));
-        this.tables.add(new Table(8, 8));
-        this.tables.add(new Table(9, 2));
-        this.tables.add(new Table(10, 2));
-        this.tables.add(new Table(11, 4));
+//        this.tables.add(new Table(1, 2));
+//        this.tables.add(new Table(2, 4));
+//        this.tables.add(new Table(3, 6));
+//        this.tables.add(new Table(4, 8));
+//        this.tables.add(new Table(5, 2));
+//        this.tables.add(new Table(6, 4));
+//        this.tables.add(new Table(7, 6));
+//        this.tables.add(new Table(8, 8));
+//        this.tables.add(new Table(9, 2));
+//        this.tables.add(new Table(10, 2));
+//        this.tables.add(new Table(11, 4));
 
         this.guests.add(new Guest("Raymond", "Loman", "067794345"));
         this.guests.add(new Guest("Arjan", "Tammer", "061234567" ));
         this.guests.add(new Guest("Mo", "Salem", "069876543"));
-//
+
 //        this.bookingsList.add(new Booking(new Guest("Arjan","Tammer", "061234567"),new Table(1,2), new Date(2018,6,21)));
 //        this.bookingsList.add(new Booking(new Guest("Mo","Salem", "069876543"),new Table(7,2), new Date(2018,6,21)));
-
     }
 
     public void showAllAvailableTables() {
@@ -47,7 +46,7 @@ public class Restaurant{
 
         for (Table table : this.getTables()) {
 
-            Booking bookingToSearchFor = new Booking(null, table, null);
+            Booking bookingToSearchFor = new Booking(null, null,null);
 
             if (bookingsList.contains(bookingToSearchFor)){
 
@@ -65,7 +64,7 @@ public class Restaurant{
 
         for (Table table : this.getTables()) {
 
-            Booking bookingToSearchFor = new Booking(null, table, null);
+            Booking bookingToSearchFor = new Booking(null, null, null);
 
             if (!bookingsList.contains(bookingToSearchFor)){
                 availableTables.add(table);
@@ -113,9 +112,7 @@ public class Restaurant{
 
                 //Once it finds all the table sizes that match capacityForBiggerTable, then it stops searching
                 if (availableTablesBySearch.size() != 0){
-
                     hasFoundResult = true;
-
                 }
 
             } while (!hasFoundResult && capacityForBiggerTable <= 9);
@@ -123,11 +120,8 @@ public class Restaurant{
         }
 
         if (availableTablesBySearch.size() == 0) {
-
             System.out.println("There's no table for " + capacity + " guests or more available.");
-
         }
-
         return availableTablesBySearch;
     }
 
@@ -139,10 +133,6 @@ public class Restaurant{
         }
         return null;
     }
-
-
-
-
 
     public List<Table> getTables() {
         return this.tables;
@@ -157,7 +147,7 @@ public class Restaurant{
             System.out.println("This table is already booked");
         }
         else{
-            Booking bookingToAdd = new Booking(table, guest);
+            Booking bookingToAdd = new Booking(null,null,null);
             this.bookingsList.add(bookingToAdd);
             System.out.println("Booking confirmed for "+guest.getLastName()+", "+guest.getFirstName());
         }
@@ -204,14 +194,10 @@ public class Restaurant{
 
         for (Guest guest : guests) {
             System.out.println("Guest " + guest.getFirstName() + " " + guest.getLastName() + " is on this guest getAllBookings");
-
-
         }
     }
 
     // Setters and setter
-
-
     public List<Guest> getGuests() {
         return this.guests;
     }
@@ -219,9 +205,6 @@ public class Restaurant{
     public void setGuests(List<Guest> guests) {
         this.guests = guests;
     }
-
-
-
 }
 
 
