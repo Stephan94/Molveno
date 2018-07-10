@@ -5,6 +5,7 @@ import com.MolvenoLakeResort.model.restaurant.Date;
 import com.MolvenoLakeResort.model.restaurant.Guest;
 import com.MolvenoLakeResort.model.restaurant.Table;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -15,7 +16,7 @@ import java.util.*;
 public interface BookingRepository extends CrudRepository<Booking, Long> { //fill repo in constructor or controller?
 
 
-    Booking findById(long id);
+    Optional<Booking> findByTable(Table table);
 
 //    private Map<Long, Booking> bookings = new HashMap<>();
 //    private static long lastId = 0;

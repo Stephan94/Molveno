@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+@Entity
 public class Guest extends User {
 
 

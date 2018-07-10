@@ -1,5 +1,6 @@
 package com.MolvenoLakeResort.model.restaurant;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;
 import java.time.LocalDate;
@@ -7,14 +8,23 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Objects;
 
-
+@Entity
 public class Booking implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @ManyToOne
     private Guest guest;
+
+    @ManyToOne
     private Table table;
 
-    private Date date;
+
+    private LocalDate date;
+
+
     private Time time;
     //private GregorianCalendar date;
 
@@ -30,7 +40,7 @@ public class Booking implements Serializable {
         this.table = table;
     }
   
-    public Booking(Guest guest, Table table, Date date) {
+    public Booking(Guest guest, Table table, LocalDate date) {
         this.guest = guest;
         this.table = table;
         this.date = date;
@@ -70,11 +80,11 @@ public class Booking implements Serializable {
         this.table = table;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return this.date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

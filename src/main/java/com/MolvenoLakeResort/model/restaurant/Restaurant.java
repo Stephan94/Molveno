@@ -36,8 +36,8 @@ public class Restaurant{
         this.guests.add(new Guest("Arjan", "Tammer", "061234567" ));
         this.guests.add(new Guest("Mo", "Salem", "069876543"));
 
-//        this.bookingsList.add(new Booking(new Guest("Arjan","Tammer", "061234567"),new Table(1,2), new Date(2018,6,21)));
-//        this.bookingsList.add(new Booking(new Guest("Mo","Salem", "069876543"),new Table(7,2), new Date(2018,6,21)));
+        this.bookingsList.add(new Booking(new Guest("Arjan","Tammer", "061234567"),new Table(1,2), LocalDate.of(2018, 6, 21 ) ));
+        this.bookingsList.add(new Booking(new Guest("Mo","Salem", "069876543"),new Table(7,2),  LocalDate.of(2018,6,21)));
     }
 
     public void showAllAvailableTables() {
