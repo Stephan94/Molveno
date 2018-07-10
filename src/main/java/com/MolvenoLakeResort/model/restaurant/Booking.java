@@ -26,7 +26,6 @@ public class Booking implements Serializable {
 
 
     private Time time;
-    //private GregorianCalendar date;
 
     public Table getTable() {
         return this.table;
@@ -39,7 +38,7 @@ public class Booking implements Serializable {
         this.guest = guest;
         this.table = table;
     }
-  
+
     public Booking(Guest guest, Table table, LocalDate date) {
         this.guest = guest;
         this.table = table;
@@ -94,5 +93,16 @@ public class Booking implements Serializable {
 
     public void setTime(Time time) {
         this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "id=" + id +
+                ", guest=" + guest +
+                ", table=" + table +
+                ", date=" + date +
+                ", time=" + time +
+                '}';
     }
 }

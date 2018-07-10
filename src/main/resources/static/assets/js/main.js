@@ -37,11 +37,8 @@ $( document ).ready(function() {
            columns = [
                { "data": "id" },
                { "data": "table.id" },
-               { "data": "guest.firstName"},
                { "data": "guest.lastName" },
                { "data": "guest.phoneNumber" },
-               {}
-
                {  "render": function(data, type, full){
                        return '<a title="view this booking" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this booking" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this booking" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
                } },
@@ -71,4 +68,12 @@ $( document ).ready(function() {
            $('#modal').modal('toggle');
        }
    });
+
+
+   $("#addBtn").on( 'click', function (){
+        $("#btnsubmit").attr('onclick', 'submitNew("' + api +'");');
+        $('#modal').modal('toggle');
+        document.getElementById("modalForm").reset();
+  });
+
 });

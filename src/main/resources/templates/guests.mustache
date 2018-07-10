@@ -4,7 +4,8 @@
 <div class="container-fluid">
     <h1 class="mt-5">List of guests</h1>
 
-    <i class="fa fa-plus fa-2x btn" id="addButton"></i>
+    <i class="fa fa-plus btn" id="addBtn"></i>
+
 
     <table id="dataTable" class="display table-hover">
         <thead>
@@ -29,7 +30,7 @@
                 <div class="modal-body">
                     <form id="modalForm" enctype='text/plain'>
                         ID:<br>
-                        <input type='text' class="form-control" name='id' id="id"><br>
+                        <input type='text' class="form-control" name='id' id="id" ><br>
                         First Name:<br>
                         <input type='text' class="form-control" name='firstName' id="firstName"><br>
                         Last Name: <br>
@@ -40,8 +41,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary d-none" id="btncreate">Submit</button><!-- button for new record -->
-                    <button type="button" class="btn btn-primary" id="btnsubmit">Submit</button><!-- button for existing record -->
+                    <button type="button" class="btn btn-primary" id="btnsubmit">Submit</button>
                     <a href="#" id="confirmbutton" data-title="Are you sure" data-trigger="focus" data-toggle="clickover" data-placement="top" class="btn btn-danger">Delete</a>
                     <button type="button" class="btn btn-default" id="btnclose" onclick="deselect()" data-dismiss="modal">Close</button>
                 </div>

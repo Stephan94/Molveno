@@ -3,17 +3,12 @@ function getData(api) {
    api = String(api);
    $.get(api, function(data){
        if (data){
-           setData(data);
-           window.location.reload(); // TODO clean up
+            $("#dataTable").DataTable().clear();
+            $("#dataTable").DataTable().rows.add(data);
+            $("#dataTable").DataTable().columns.adjust().draw();
+            window.location.reload(); // TODO clean up
        }
    });
-}
-
-
-function setData(data){
-   $("#dataTable").DataTable().clear();
-   $("#dataTable").DataTable().rows.add(data);
-   $("#dataTable").DataTable().columns.adjust().draw();
 }
 
 
@@ -66,17 +61,23 @@ function fillModal(record){
            break;
        case "/bookings":
            $("#id").val(record.id);
-           $("#tableNumber").val(record.table.id);
-           $("#lastName").val(record.guest.lastName);
+           $("#guestid").val(record.guest.id);
+           $("#guestFirstName").val(record.guest.firstName);
+           $("#guestLastName").val(record.guest.lastName);
            $("#phoneNumber").val(record.guest.phoneNumber);
+           $("#tableNumber").val(record.table.id);
+           $("#tableCapacity").val(record.table.capacity);
+           $("#bookingDate").val(record.date);
+           $("#bookingTime").val(record.time);
            break;
        case "/addBooking":
            $("#capacity").val(record.table.capacity);
            $("#lastName").val(record.guest.lastName);
            $("#phoneNumber").val(record.guest.phoneNumber);
            break;
-           }
-       }
+   }
+
+}
 
 function deselect(){
    $('#dataTable tr.selected').removeClass('selected');
@@ -87,6 +88,7 @@ function deselect(){
 
 function submitEdit(id, api){
 // shortcut for filling the formData as a JavaScript object with the fields in the form
+
    console.log("Formdata");
    var formData = $("#modalForm").serializeArray().reduce(function(result, object){ result[object.name] = object.value; return result}, {});
    console.log(formData);
@@ -94,10 +96,47 @@ function submitEdit(id, api){
    for(var key in formData){
        if(formData[key] == "" || formData == null) delete formData[key];
    }
+
+
+    var path = window.location.pathname;
+    var JSONObjectInString;
+
+    switch(path){
+
+        case "/bookings":
+             JSONObjectInString =
+            {
+             "id": id,
+             "guest": {
+                 "id": guestid.value,
+                 "firstName": guestFirstName.value,
+                 "lastName": guestLastName.value,
+                 "phoneNumber": phoneNumber.value
+             },
+             "table": {
+                 "id": tableNumber.value,
+                 "capacity": tableCapacity.value
+             },
+             "date": null,
+             "time": null
+            }
+
+        break;
+
+        case "/tables":
+            JSONObjectInString = formData;
+        break;
+
+        case "/guests":
+            JSONObjectInString = formData;
+        break;
+    }
+
+
    $.ajax({
        url: api + "/" + id,
        type:"put",
-       data: JSON.stringify(formData),
+       data: JSON.stringify(JSONObjectInString),
        contentType: "application/json; charset=utf-8",
        success: getData(api),
        error: function(error){
@@ -147,4 +186,30 @@ function navbarHighlight(path){
            $("#navHome").addClass("active");
            break;
    }
+}
+
+function submitNew(api){
+   console.log("Formdata");
+   var formData = $("#modalForm").serializeArray().reduce(function(result, object){ result[object.name] = object.value; return result}, {});
+   console.log(formData);
+   //var id = formData.id;
+   for(var key in formData){
+       if(formData[key] == "" || formData == null) delete formData[key];
+   }
+
+   console.log(JSON.stringify(formData));
+
+   $.ajax({
+       url: api,
+       type:"post",
+       data: JSON.stringify(formData),
+       contentType: "application/json; charset=utf-8",
+       success: getData(api),
+       error: function(error){
+           console.log(error);
+       }
+   });
+
+   deselect();
+   $('#modal').modal('toggle');
 }
