@@ -97,27 +97,41 @@ function submitEdit(id, api){
        if(formData[key] == "" || formData == null) delete formData[key];
    }
 
-   var JSONObjectInString;
 
+    var path = window.location.pathname;
+    var JSONObjectInString;
 
-       var path = window.location.path;
+    switch(path){
 
+        case "/bookings":
+             JSONObjectInString =
+            {
+             "id": id,
+             "guest": {
+                 "id": guestid.value,
+                 "firstName": guestFirstName.value,
+                 "lastName": guestLastName.value,
+                 "phoneNumber": phoneNumber.value
+             },
+             "table": {
+                 "id": tableNumber.value,
+                 "capacity": tableCapacity.value
+             },
+             "date": null,
+             "time": null
+            }
 
-       {
-                         "id": id,
-                         "guest": {
-                             "id": guestid.value,
-                             "firstName": guestFirstName.value,
-                             "lastName": guestLastName.value,
-                             "phoneNumber": phoneNumber.value
-                         },
-                         "table": {
-                             "id": tableNumber.value,
-                             "capacity": tableCapacity.value
-                         },
-                         "date": null,
-                         "time": null
-                     }
+        break;
+
+        case "/tables":
+            JSONObjectInString = formData;
+        break;
+
+        case "/guests":
+            JSONObjectInString = formData;
+        break;
+    }
+
 
    $.ajax({
        url: api + "/" + id,
