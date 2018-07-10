@@ -15,7 +15,7 @@ public class BookingRepository { //fill repo in constructor or controller?
     private static long lastId = 0;
 
     private GuestRepository guests = new GuestRepository();
-    private TableRepository tables = new TableRepository();
+
 
     //  TODO add autowired Table repo and guest repo
     @PostConstruct

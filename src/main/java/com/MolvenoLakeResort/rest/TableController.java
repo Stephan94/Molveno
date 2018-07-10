@@ -2,11 +2,13 @@ package com.MolvenoLakeResort.rest;
 
 import com.MolvenoLakeResort.model.restaurant.Table;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.MolvenoLakeResort.model.restaurant.persistence.TableRepository;
 
 
-import java.util.Collection;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/tables")
@@ -16,29 +18,91 @@ public class TableController {
     private TableRepository tableRepository;
 
     @PostMapping
-    public Table create(@RequestBody Table newTable){
-        this.tableRepository.add(newTable);
-        return newTable;
+    public ResponseEntity<Table> create(@RequestBody Table newTable){
+        this.tableRepository.save(newTable);
+        return new ResponseEntity<Table>(newTable, HttpStatus.OK);
     }
 
     @GetMapping
-    public Collection<Table> list(){
-        return this.tableRepository.findAll();
+    public ResponseEntity<Iterable<Table>> list(){
+        return new ResponseEntity<Iterable<Table>>(this.tableRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("{id}")
-    public Table findById(@PathVariable long id){
-        return  this.tableRepository.findById(id);
+    public ResponseEntity<Table> findById(@PathVariable long id) {
+
+        Optional<Table> result = (this.tableRepository.findById(id));
+
+        if (result.isPresent()) {
+            return new ResponseEntity<Table>(result.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Table>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PutMapping("{id}")
-    public Table updateById(@PathVariable long id, @RequestBody Table update){
-        return this.tableRepository.update(id, update);
+    public ResponseEntity<Table> updateById(@PathVariable long id, @RequestBody Table update){
+
+        Optional<Table> possibleVictim = (this.tableRepository.findById(id));
+
+        if (possibleVictim.isPresent()){
+            Table victim = possibleVictim.get();
+
+            victim.setId(update.getId());
+            victim.setCapacity(update.getCapacity());
+
+//            victim = this.tableRepository.save(victim);
+
+            return new ResponseEntity<Table>(this.tableRepository.save(victim),HttpStatus.OK);
+
+        }else{
+            return new ResponseEntity<Table>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @DeleteMapping("{id}")
-    public void deleteById(@PathVariable long id){
-        this.tableRepository.removeById(id);
+    public ResponseEntity<Table> deleteById(@PathVariable long id){
+
+        Optional<Table> result = (this.tableRepository.findById(id));
+
+        if (result.isPresent()){
+            this.tableRepository.deleteById(id);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
+
+    @GetMapping("{capacity}")
+    public ResponseEntity<Table> findByCapacity(@PathVariable int capacity) {
+
+        Optional<Table> result = Optional.ofNullable(this.tableRepository.findByCapacity(capacity));
+
+        Table tableCapacity4 = this.tableRepository.findByCapacity(4);
+
+        if (result.isPresent()) {
+            return new ResponseEntity<Table>(result.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Table>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("{capacity}")
+    public ResponseEntity<Table> updateByCapacity(@PathVariable int capacity, @RequestBody Table update){
+
+        Optional<Table> possibleVictim = Optional.ofNullable(this.tableRepository.findByCapacity(capacity));
+
+        if (possibleVictim.isPresent()){
+            Table victim = possibleVictim.get();
+
+            victim.setId(update.getId());
+            victim.setCapacity(update.getCapacity());
+
+            victim = this.tableRepository.save(victim);
+
+            return new ResponseEntity<Table>(this.tableRepository.save(victim),HttpStatus.OK);
+
+        }else{
+            return new ResponseEntity<Table>(HttpStatus.NOT_FOUND);
+        }
+    }
 }

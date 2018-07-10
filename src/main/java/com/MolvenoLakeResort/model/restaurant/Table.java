@@ -1,45 +1,39 @@
 package com.MolvenoLakeResort.model.restaurant;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Entity
+@Entity(name = "Tables")
 public class Table implements Serializable, Comparable<Table> {
 
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private int capacity;
 
-    //constructor
     public Table(long ID, int capacity){
         this.id = ID;
+
         this.capacity = capacity;
     }
 
     public Table() {
     }
 
-    // getter TableID
     public long getId() {
         return this.id;
     }
 
-    // setter TableID
     public void setId(long id) {
         this.id = id;
     }
 
-    // getter Capacity
     public int getCapacity() {
         return this.capacity;
     }
 
-    //setter Capacity
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }

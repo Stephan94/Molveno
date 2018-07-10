@@ -42,17 +42,6 @@ $( document ).ready(function() {
                        return '<a title="view this booking" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this booking" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this booking" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
                } },
            ];
-            break;
-        case "/bookings":
-            api = 'http://localhost:8080/api/addBooking';
-            columns = [
-                { "data": "table.capacity" },
-                { "data": "guest.lastName" },
-                { "data": "guest.phoneNumber" },
-                {  "render": function(data, type, full){
-                        return '<a title="view this booking" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this booking" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this booking" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
-                    } },
-            ];
         }
 
    $('#dataTable').DataTable( {
