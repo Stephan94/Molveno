@@ -1,23 +1,27 @@
 package com.MolvenoLakeResort.model.restaurant.persistence;
 
 import com.MolvenoLakeResort.model.restaurant.Guest;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Repository
-public class GuestRepository {
+public interface GuestRepository extends CrudRepository<Guest, Long> {
 
-    private Map<Long, Guest> guests = new HashMap<>();
+
+    Guest findByFirstName(String firstName);
+    Optional<Guest> findByLastName(String lastName);
+
+    /*private Map<Long, Guest> guests = new HashMap<>();
     private static long lastId = 0;
 
     @PostConstruct
     public void preFillRecords(){
-
-        //TODO insert valid bookings (probably fix table and guest repos first)
 
         this.add(new Guest("Kim", "Bergschen", "063339976"));
         this.add(new Guest("Leila", "Bashir", "062466982"));
@@ -53,7 +57,7 @@ public class GuestRepository {
 
         return directObject;
     }
-
+*/
 
 
 }
