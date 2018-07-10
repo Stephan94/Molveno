@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import javax.annotation.PostConstruct;
 import java.util.*;
 
-
 @Repository
 public interface BookingRepository extends CrudRepository<Booking, Long> { //fill repo in constructor or controller?
 

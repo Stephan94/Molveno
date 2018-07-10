@@ -47,7 +47,6 @@ function fillUpdateDiv(record, api){
 
 function fillModal(record){
    var path = String(window.location.pathname);
-
    switch(path) {
        case "/tables":
            $("#id").val(record.id);
