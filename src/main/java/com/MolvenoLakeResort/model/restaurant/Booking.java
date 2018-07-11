@@ -1,12 +1,13 @@
 package com.MolvenoLakeResort.model.restaurant;
 
+import javax.persistence.Entity;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Objects;
 
-
+@Entity
 public class Booking {
 
     private long id;
