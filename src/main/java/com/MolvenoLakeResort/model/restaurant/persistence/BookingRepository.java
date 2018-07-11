@@ -1,14 +1,13 @@
 package com.MolvenoLakeResort.model.restaurant.persistence;
 
-import com.MolvenoLakeResort.model.restaurant.Booking;
+import com.MolvenoLakeResort.model.restaurant.*;
 import com.MolvenoLakeResort.model.restaurant.Date;
-import com.MolvenoLakeResort.model.restaurant.Guest;
-import com.MolvenoLakeResort.model.restaurant.Table;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
 import java.util.*;
 
 @Repository
@@ -16,6 +15,7 @@ public interface BookingRepository extends CrudRepository<Booking, Long> { //fil
 
 
     Optional<Booking> findByTable(Table table);
+    Collection<Booking> findByDateAndTimeSlot(LocalDate date, TimeSlot timeSlot);
 
 //    private Map<Long, Booking> bookings = new HashMap<>();
 //    private static long lastId = 0;

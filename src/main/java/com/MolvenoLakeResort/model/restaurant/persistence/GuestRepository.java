@@ -14,8 +14,10 @@ import java.util.Optional;
 public interface GuestRepository extends CrudRepository<Guest, Long> {
 
 
+
     Guest findByFirstName(String firstName);
     Optional<Guest> findByLastName(String lastName);
+    Optional<Guest> findByFirstNameAndLastName(String firstName, String lastName);
 
     /*private Map<Long, Guest> guests = new HashMap<>();
     private static long lastId = 0;

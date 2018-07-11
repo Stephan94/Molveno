@@ -6,7 +6,7 @@ function getData(api) {
             $("#dataTable").DataTable().clear();
             $("#dataTable").DataTable().rows.add(data);
             $("#dataTable").DataTable().columns.adjust().draw();
-            window.location.reload(); // TODO clean up
+            $("#dataTable").dataTable().api().ajax.reload();
        }
    });
 }
@@ -105,19 +105,19 @@ function submitEdit(id, api){
         case "/bookings":
              JSONObjectInString =
             {
-             "id": id,
-             "guest": {
-                 "id": guestid.value,
-                 "firstName": guestFirstName.value,
-                 "lastName": guestLastName.value,
-                 "phoneNumber": phoneNumber.value
-             },
-             "table": {
-                 "id": tableNumber.value,
-                 "capacity": tableCapacity.value
-             },
-             "date": null,
-             "time": null
+                 "id": id,
+                 "guest": {
+                     "id": guestid.value, //TODO remove
+                     "firstName": guestFirstName.value,
+                     "lastName": guestLastName.value,
+                     "phoneNumber": phoneNumber.value
+                 },
+                 "table": {
+                     "id": tableNumber.value,
+                     "capacity": tableCapacity.value
+                 },
+                 "date": null,
+                 "time": null
             }
 
         break;

@@ -2,7 +2,10 @@ package com.MolvenoLakeResort.model.restaurant;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity(name = "Tables")
 public class Table implements Serializable, Comparable<Table> {
@@ -11,6 +14,9 @@ public class Table implements Serializable, Comparable<Table> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private int capacity;
+
+    @OneToMany(mappedBy="table")
+    Set<Booking> bookings = new HashSet <>();
 
     public Table(long id, int capacity){
         this.id = id;
