@@ -31,10 +31,10 @@ cmake-build-release/
 # File-based project format
 *.iws
 
-application.properties
-
 # IntelliJ
 out/
+
+application.properties
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -58,4 +58,7 @@ fabric.properties
 *.iml
 target/
 
+
+#application.properties file
 application.properties
+
