@@ -106,7 +106,7 @@ public class BookingController {
             return new ResponseEntity<Booking>(this.bookingsRepository.save(directObject),
                     HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Booking>(HttpStatus.NOT_FOUND);
         }
     }
 
