@@ -181,6 +181,18 @@ function navbarHighlight(path){
            $("#navEmployee").addClass("active");
            break;
 
+       case "/addBooking":
+           $("#navAddBooking").addClass("active");
+           break;
+
+       case "/contact":
+           $("#navContact").addClass("active");
+           break;
+
+       case "/":
+           $("#navGuestHome").addClass("active");
+           break;
+
        default:
            $("#navHome").addClass("active");
            break;
