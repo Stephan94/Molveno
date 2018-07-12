@@ -43,8 +43,8 @@ $( document ).ready(function() {
                        return '<a title="view this booking" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this booking" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this booking" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
                } },
             ];
-        break;
-  }
+            break;
+      }
 
 
    $('#dataTable').DataTable( {
@@ -76,5 +76,9 @@ $( document ).ready(function() {
         $('#modal').modal('toggle');
         document.getElementById("modalForm").reset();
   });
+
+  $("#deleteBtn").on( 'click', function (){
+        $("#btnsubmit").attr('onclick', 'submitDelete("' + api +'");');
+    });
 
 });
