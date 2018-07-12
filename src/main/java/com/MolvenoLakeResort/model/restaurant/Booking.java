@@ -21,11 +21,10 @@ public class Booking implements Serializable {
     @ManyToOne
     private Table table;
 
-
     private LocalDate date;
 
 
-    private Time time;
+    private TimeSlot timeSlot;
 
     public Table getTable() {
         return this.table;
@@ -87,12 +86,12 @@ public class Booking implements Serializable {
         this.date = date;
     }
 
-    public Time getTime() {
-        return this.time;
+    public TimeSlot getTimeSlot() {
+        return this.timeSlot;
     }
 
-    public void setTime(Time time) {
-        this.time = time;
+    public void setTimeSlot(TimeSlot timeSlot) {
+        this.timeSlot = timeSlot;
     }
 
     @Override
@@ -102,7 +101,7 @@ public class Booking implements Serializable {
                 ", guest=" + guest +
                 ", table=" + table +
                 ", date=" + date +
-                ", time=" + time +
+                ", timeSlot=" + timeSlot +
                 '}';
     }
 }
