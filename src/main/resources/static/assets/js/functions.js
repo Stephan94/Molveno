@@ -148,6 +148,7 @@ function submitEdit(id, api){
 }
 
 
+
 function submitDelete(id, api){
    console.log("Deleting");
    var formData = $("#modalForm").serializeArray().reduce(function(result, object){ result[object.name] = object.value; return result}, {});
@@ -159,8 +160,7 @@ function submitDelete(id, api){
        contentType: "application/json; charset=utf-8"
    });
 
-   $('#myModal').modal('toggle');
-   deselect();
+   $('#modal').modal('toggle');
 }
 
 function navbarHighlight(path){
@@ -179,18 +179,6 @@ function navbarHighlight(path){
 
        case "/mainMenu":
            $("#navEmployee").addClass("active");
-           break;
-
-       case "/addBooking":
-           $("#navAddBooking").addClass("active");
-           break;
-
-       case "/contact":
-           $("#navContact").addClass("active");
-           break;
-
-       case "/":
-           $("#navGuestHome").addClass("active");
            break;
 
        default:

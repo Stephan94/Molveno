@@ -14,10 +14,11 @@ $( document ).ready(function() {
                { "data": "id" },
                { "data": "capacity" },
                {  "render": function(data, type, full){
-                   return '<a title="view this table" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this table" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this table" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
+                   return '<a title="Delete this table" class="btn btn-default btn-sm"> <i class="fa fa-trash-alt"></i> </a>';
                } },
            ];
            break;
+		   
 
        case "/guests":
            api = 'http://localhost:8080/api/guests';
@@ -27,7 +28,7 @@ $( document ).ready(function() {
                { "data": "lastName" },
                { "data": "phoneNumber" },
                {  "render": function(data, type, full){
-                       return '<a title="view this table" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this table" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this table" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
+                   return '<a title="Delete this table" <i class="fa fa-trash-alt"></i> </a>';
                } },
            ];
            break;
@@ -39,12 +40,12 @@ $( document ).ready(function() {
                { "data": "table.id" },
                { "data": "guest.lastName" },
                { "data": "guest.phoneNumber" },
-               {  "render": function(data, type, full){
-                       return '<a title="view this booking" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this booking" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this booking" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
-               } },
+               { "render": function(data, type, full){
+                   return '<a title="Delete this table" class="btn btn-default btn-sm"> <i class="fa fa-trash-alt"></i> </a>';
+                }},
             ];
-        break;
-  }
+            break;
+      }
 
 
    $('#dataTable').DataTable( {
@@ -56,7 +57,7 @@ $( document ).ready(function() {
        "columns": columns
    } );
 
-   $('#dataTable tbody').on( 'click', 'tr', function () {
+   $('#dataTable').on( 'click', 'tr', function () {
        if ( $(this).hasClass('selected') ) {
            $(this).removeClass('selected');
        }
@@ -76,5 +77,9 @@ $( document ).ready(function() {
         $('#modal').modal('toggle');
         document.getElementById("modalForm").reset();
   });
+
+  $("#deleteBtn").on( 'click', function (){
+        $("#btnsubmit").attr('onclick', 'submitDelete("' + api +'");');
+    });
 
 });
