@@ -33,8 +33,8 @@ $( document ).ready(function() {
            break;
        
         case "/bookings":
-           api = 'http://localhost:8080/api/bookings';
-           columns = [
+            api = 'http://localhost:8080/api/bookings';
+            columns = [
                { "data": "id" },
                { "data": "table.id" },
                { "data": "guest.lastName" },
@@ -42,10 +42,9 @@ $( document ).ready(function() {
                {  "render": function(data, type, full){
                        return '<a title="view this booking" class="btn btn-default btn-sm "> <i class="fa fa-search"></i> </a><a title="edit this booking" class="btn btn-default btn-sm "> <i class="fa fa-edit"></i> </a><a title="delete this booking" class="btn btn-default btn-sm "> <i class="fa fa-trash-alt"></i> </a>';
                } },
-               ];
-
-            break;
-      }
+            ];
+        break;
+  }
 
 
    $('#dataTable').DataTable( {
