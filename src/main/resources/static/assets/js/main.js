@@ -77,4 +77,8 @@ $( document ).ready(function() {
         document.getElementById("modalForm").reset();
   });
 
+  $("#deleteBtn").on( 'click', function (){
+        $("#btnsubmit").attr('onclick', 'submitDelete("' + api +'");');
+    });
+
 });
