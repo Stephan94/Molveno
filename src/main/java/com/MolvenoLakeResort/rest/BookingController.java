@@ -2,6 +2,7 @@ package com.MolvenoLakeResort.rest;
 
 import com.MolvenoLakeResort.model.restaurant.Booking;
 import com.MolvenoLakeResort.model.restaurant.Guest;
+import com.MolvenoLakeResort.model.restaurant.Table;
 import com.MolvenoLakeResort.model.restaurant.persistence.BookingRepository;
 import com.MolvenoLakeResort.model.restaurant.persistence.GuestRepository;
 import com.MolvenoLakeResort.model.restaurant.persistence.TableRepository;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -30,41 +32,37 @@ public class BookingController {
     @PostMapping
     public ResponseEntity<Booking> create(@RequestBody Booking newBooking) {
 
-        // compare input firstname and lastname to guestrepo
+        Optional<Guest> possibleGuest = guestRepository.findByFirstNameAndLastName(newBooking.getGuest().getFirstName(), newBooking.getGuest().getLastName());
 
-       // this.guestRepository.findByFirstNameAndLAstName();
-
-        newBooking.getGuest().getFirstName();
-        newBooking.getGuest().getLastName();
-
-
-
-        //go through the bookingsRepository and check whether there is already
-        //a Booking with these details
-        Optional<Booking> target = bookingsRepository.findByTable(newBooking.getTable());
-
-        if (target.isPresent()) {
-            Booking actualTarget = target.get();
-
-            /*
-            unclear code from the internet:
-            target.filter(Booking.class::isInstance);
-            target.map(Booking.class::cast);
-             */
-
-            if (actualTarget.getDate().equals(newBooking.getDate()) &&
-                    actualTarget.getTime().equals(newBooking.getTime())) {
-
-                return new ResponseEntity<>(HttpStatus.CONFLICT);
-            }
-            else {
-                this.bookingsRepository.save(newBooking);
-                return new ResponseEntity<Booking>(newBooking, HttpStatus.CREATED);
-            }
+        if (possibleGuest.isPresent()) { //if guest already exists
+            newBooking.setGuest(possibleGuest.get()); //match to new booking
+        } else {
+            //create new guest account if not found
+            Guest newGuest = new Guest();
+            newGuest.setFirstName(newBooking.getGuest().getFirstName());
+            newGuest.setLastName(newBooking.getGuest().getLastName());
+            newGuest.setPhoneNumber(newBooking.getGuest().getPhoneNumber());
+            newBooking.setGuest(newGuest);
+            this.guestRepository.save(newGuest);
         }
-        else {
+
+        Collection<Booking> bookingsByDateAndTime = this.bookingsRepository.findByDateAndTimeSlot(newBooking.getDate(), newBooking.getTimeSlot());
+
+        List<Table> bookedTables = new ArrayList<>();
+        for(Booking booking : bookingsByDateAndTime){
+            bookedTables.add(booking.getTable());
+        }
+
+        List<Table> fittingTables = this.tableRepository.findAllByCapacityGreaterThanEqualOrderByCapacityAsc(newBooking.getTable().getCapacity());
+
+        fittingTables.removeAll(bookedTables);
+
+        if(fittingTables.size() > 0){
+            newBooking.setTable(fittingTables.get(0));
             this.bookingsRepository.save(newBooking);
             return new ResponseEntity<Booking>(newBooking, HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>( HttpStatus.NOT_FOUND);
         }
     }
 
@@ -98,7 +96,7 @@ public class BookingController {
             directObject.setGuest(update.getGuest());
             directObject.setTable(update.getTable());
             directObject.setDate(update.getDate());
-            directObject.setTime(update.getTime());
+            directObject.setTimeSlot(update.getTimeSlot());
 
             directObject = this.bookingsRepository.save(directObject);
 

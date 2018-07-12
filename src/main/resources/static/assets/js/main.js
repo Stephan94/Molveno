@@ -33,8 +33,8 @@ $( document ).ready(function() {
            break;
        
         case "/bookings":
-           api = 'http://localhost:8080/api/bookings';
-           columns = [
+            api = 'http://localhost:8080/api/bookings';
+            columns = [
                { "data": "id" },
                { "data": "table.id" },
                { "data": "guest.lastName" },
