@@ -160,8 +160,7 @@ function submitDelete(id, api){
        contentType: "application/json; charset=utf-8"
    });
 
-   $('#myModal').modal('toggle');
-   deselect();
+   $('#modal').modal('toggle');
 }
 
 function navbarHighlight(path){
