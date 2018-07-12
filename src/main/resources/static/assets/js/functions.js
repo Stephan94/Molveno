@@ -198,6 +198,42 @@ function submitNew(api){
 
    console.log(JSON.stringify(formData));
 
+
+    var path = window.location.pathname;
+    var JSONObjectInString;
+
+    switch(path){
+
+        case "/bookings":
+             JSONObjectInString =
+            {
+                 "id": id,
+                 "guest": {
+                     "id": guestid.value, //TODO remove
+                     "firstName": guestFirstName.value,
+                     "lastName": guestLastName.value,
+                     "phoneNumber": phoneNumber.value
+                 },
+                 "table": {
+                     "id": tableNumber.value,
+                     "capacity": tableCapacity.value
+                 },
+                 "date": null,
+                 "time": null
+            }
+
+        break;
+
+        case "/tables":
+            JSONObjectInString = formData;
+        break;
+
+        case "/guests":
+            JSONObjectInString = formData;
+        break;
+    }
+
+
    $.ajax({
        url: api,
        type:"post",
