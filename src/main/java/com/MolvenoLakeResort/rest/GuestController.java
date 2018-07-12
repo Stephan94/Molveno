@@ -34,7 +34,6 @@ public class GuestController {
 
             return new ResponseEntity<Guest>(this.guestRepository.save(newGuest), HttpStatus.CREATED);
         }
-
     }
 
     @GetMapping
@@ -53,9 +52,7 @@ public class GuestController {
         else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
     }
-
 
     @PutMapping("{id}")
     public ResponseEntity<Guest> updateById(@PathVariable long id, @RequestBody Guest update) {
@@ -73,8 +70,7 @@ public class GuestController {
         }
     }
 
-
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("{id}")
     public ResponseEntity<Guest> deleteById(@PathVariable long id) {
         Optional<Guest> possibleGuest = this.guestRepository.findById(id);
 
@@ -83,8 +79,6 @@ public class GuestController {
         }
 
         return new ResponseEntity<>(HttpStatus.OK);
-
     }
-
 }
 

@@ -1,5 +1,6 @@
 package com.MolvenoLakeResort.rest;
 
+import com.MolvenoLakeResort.model.restaurant.Guest;
 import com.MolvenoLakeResort.model.restaurant.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,9 +20,13 @@ public class TableController {
 
     @PostMapping
     public ResponseEntity<Table> create(@RequestBody Table newTable) {
+        Optional<Table> possibleTable = (this.tableRepository.findById(newTable.getId()));
 
-        this.tableRepository.save(newTable);
-        return new ResponseEntity<Table>(newTable, HttpStatus.CREATED);
+        if (possibleTable.isPresent()) {
+                return new ResponseEntity<Table>(HttpStatus.CONFLICT);
+            } else {
+            return new ResponseEntity<Table>(this.tableRepository.save(newTable), HttpStatus.CREATED);
+        }
     }
 
     @GetMapping
