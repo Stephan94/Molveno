@@ -2,18 +2,35 @@
 
 <!-- Page Content -->
 <div class="container-fluid">
-    <h1 class="mt-5">Make your booking</h1>
-    <p>Book for more than 6 guests? Please call us.</p>
-    <table id="dataTable" class="display table-hover">
-        <thead>
-        <tr>
-            <th>Capacity</th>
-            <th>Last name</th>
-            <th>Telephone number</th>
-            <th>Options</th>
-        </tr>
-        </thead>
-    </table>
+
+    <div class="container" style="margin-top: 30px;">
+        <div class="row">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+
+                <h3>Book a table</h3>
+                <p>Book for more than 6 guests? Please call us.</p>
+                <form id="bookingForm" enctype='text/plain'>
+                    First name:<br>
+                    <input type='text' class="form-control" name='guestFirstName' id="guestFirstName"><br>
+                    Last name: <br>
+                    <input type='text' class="form-control" name='guestLastName' id="guestLastName"><br>
+                    Telephone number:
+                    <input type='text' class="form-control" name='phoneNumber' id="phoneNumber"><br>
+                    For how many people do you want to book a table?<br>
+                    <input type='text' class="form-control" name='tableCapacity' id="tableCapacity"><br>
+                    Date:<br>
+                    <input type='text' class="form-control" name='bookingDate' id="bookingDate"><br>
+                    Time:<br>
+                    <input type='text' class="form-control" name='bookingTime' id="bookingTime"><br>
+                    <button type="button" class="btn btn-primary" id="submitNewBooking">Submit</button>
+                </form>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" id="modal" role="dialog">
         <div class="modal-dialog">
