@@ -10,7 +10,7 @@
             <div class="col-8">
 
                 <h3>Book a table</h3>
-                <p>Book for more than 6 guests? Please call us.</p>
+                <p style="font-style: italic;">Book for more than 6 guests? Please call us at +39 061 586934.</p>
                 <form id="bookingForm" enctype='text/plain'>
                     First name:<br>
                     <input type='text' class="form-control" name='guestFirstName' id="guestFirstName"><br>
@@ -19,42 +19,17 @@
                     Telephone number:
                     <input type='text' class="form-control" name='phoneNumber' id="phoneNumber"><br>
                     For how many people do you want to book a table?<br>
-                    <input type='text' class="form-control" name='tableCapacity' id="tableCapacity"><br>
+                    <input type='text' class="form-control" name='tableCapacity' id="tableCapacity" placeholder="Max. 6 guests"><br>
                     Date:<br>
                     <input type='text' class="form-control" name='bookingDate' id="bookingDate"><br>
-                    Time:<br>
-                    <input type='text' class="form-control" name='bookingTime' id="bookingTime"><br>
-                    <button type="button" class="btn btn-primary" id="submitNewBooking">Submit</button>
+                    Would you like to book for lunch or dinner?<br>
+                    <input type='text' class="form-control" name='bookingTime' id="bookingTime" placeholder="e.g. 'lunch' or 'dinner'"><br>
+                    <button type="button" class="btn btn-success" id="submitNewBooking">Submit</button>
+                    <!--<button type="button" class="btn btn-default" id="btnclose" onclick="deselect()" data-dismiss="modal">Close</button>-->
+                    <a href="/" class="btn close-btn" role="button" >Cancel</a>
                 </form>
             </div>
             <div class="col-2">
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modal" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" onclick="deselect()" data-dismiss="modal">&times;</button>
-                    <h3 class="modal-title" id="modal-title">Title</h3>
-                </div>
-                <div class="modal-body">
-                    <form id="modalForm" enctype='text/plain'>
-                        Capacity:<br>
-                        <input type='text' class="form-control" name='capacity' id="capacity"><br>
-                        Last name: <br>
-                        <input type='text' class="form-control" name='lastName' id="lastName"><br>
-                        Telephone number:
-                        <input type='text' class="form-control" name='phoneNumber' id="phoneNumber"><br>
-                    </form>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="btnsubmit">Submit</button>
-                    <a href="#" id="confirmbutton" data-title="Are you sure" data-trigger="focus" data-toggle="clickover" data-placement="top" class="btn btn-danger">Delete</a>
-                    <button type="button" class="btn btn-default" id="btnclose" onclick="deselect()" data-dismiss="modal">Close</button>
-                </div>
             </div>
         </div>
     </div>

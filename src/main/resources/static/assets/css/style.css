@@ -16,3 +16,16 @@ body {
     align-content: center;
     justify-content: center;
 }
+
+.modal-header{
+    flex-direction: row-reverse;
+    .close {
+    padding = 0;
+    }
+}
+
+.close-btn {
+    color: #000;
+    background-color: rgb(221, 221, 221);
+    border: none;
+}
