@@ -23,3 +23,9 @@ body {
     padding = 0;
     }
 }
+
+.close-btn {
+    color: #000;
+    background-color: rgb(221, 221, 221);
+    border: none;
+}
