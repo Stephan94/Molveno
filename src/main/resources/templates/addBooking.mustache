@@ -10,7 +10,7 @@
             <div class="col-8">
 
                 <h3>Book a table</h3>
-                <p>Book for more than 6 guests? Please call us.</p>
+                <p style="font-style: italic;">Book for more than 6 guests? Please call us at +39 061 586934.</p>
                 <form id="bookingForm" enctype='text/plain'>
                     First name:<br>
                     <input type='text' class="form-control" name='guestFirstName' id="guestFirstName"><br>
@@ -19,12 +19,12 @@
                     Telephone number:
                     <input type='text' class="form-control" name='phoneNumber' id="phoneNumber"><br>
                     For how many people do you want to book a table?<br>
-                    <input type='text' class="form-control" name='tableCapacity' id="tableCapacity"><br>
+                    <input type='text' class="form-control" name='tableCapacity' id="tableCapacity" placeholder="Max. 6 guests"><br>
                     Date:<br>
                     <input type='text' class="form-control" name='bookingDate' id="bookingDate"><br>
-                    Time:<br>
-                    <input type='text' class="form-control" name='bookingTime' id="bookingTime"><br>
-                    <button type="button" class="btn btn-primary" id="submitNewBooking">Submit</button>
+                    Would you like to book for lunch or dinner?<br>
+                    <input type='text' class="form-control" name='bookingTime' id="bookingTime" placeholder="e.g. 'lunch' or 'dinner'"><br>
+                    <button type="button" class="btn btn-success" id="submitNewBooking">Submit</button>
                 </form>
             </div>
             <div class="col-2">

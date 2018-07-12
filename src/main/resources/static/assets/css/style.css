@@ -16,3 +16,10 @@ body {
     align-content: center;
     justify-content: center;
 }
+
+.modal-header{
+    flex-direction: row-reverse;
+    .close {
+    padding = 0;
+    }
+}

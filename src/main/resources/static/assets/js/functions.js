@@ -212,3 +212,7 @@ function submitNew(api){
    deselect();
    $('#modal').modal('toggle');
 }
+
+$( function() {
+    $("#bookingDate").datepicker();
+} );
