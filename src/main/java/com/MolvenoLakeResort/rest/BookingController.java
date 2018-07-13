@@ -32,9 +32,12 @@ public class BookingController {
     @PostMapping
     public ResponseEntity<Booking> create(@RequestBody Booking newBooking) {
 
+        System.out.println("just to be sure: " + newBooking);
+
         Optional<Guest> possibleGuest = guestRepository.findByFirstNameAndLastName(newBooking.getGuest().getFirstName(), newBooking.getGuest().getLastName());
 
         if (possibleGuest.isPresent()) { //if guest already exists
+            System.out.println("testerdetest" + possibleGuest);
             newBooking.setGuest(possibleGuest.get()); //match to new booking
         } else {
             //create new guest account if not found
@@ -48,6 +51,7 @@ public class BookingController {
 
         Collection<Booking> bookingsByDateAndTime = this.bookingsRepository.findByDateAndTimeSlot(newBooking.getDate(), newBooking.getTimeSlot());
 
+        System.out.println("bookingByDateAndTime = " + bookingsByDateAndTime);
         List<Table> bookedTables = new ArrayList<>();
         for(Booking booking : bookingsByDateAndTime){
             bookedTables.add(booking.getTable());
@@ -55,14 +59,16 @@ public class BookingController {
 
         List<Table> fittingTables = this.tableRepository.findAllByCapacityGreaterThanEqualOrderByCapacityAsc(newBooking.getTable().getCapacity());
 
+        System.out.println("fittingTables"+fittingTables);
         fittingTables.removeAll(bookedTables);
 
         if(fittingTables.size() > 0){
             newBooking.setTable(fittingTables.get(0));
+            System.out.println("newBooking = "+newBooking);
             this.bookingsRepository.save(newBooking);
             return new ResponseEntity<Booking>(newBooking, HttpStatus.CREATED);
         } else {
-            return new ResponseEntity<>( HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>( HttpStatus.I_AM_A_TEAPOT);
         }
     }
 
@@ -81,7 +87,7 @@ public class BookingController {
         if (result.isPresent()) {
             return new ResponseEntity<Booking>(result.get(), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.I_AM_A_TEAPOT);
         }
     }
 
@@ -106,7 +112,7 @@ public class BookingController {
             return new ResponseEntity<Booking>(this.bookingsRepository.save(directObject),
                     HttpStatus.OK);
         } else {
-            return new ResponseEntity<Booking>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Booking>(HttpStatus.I_AM_A_TEAPOT);
         }
     }
 
