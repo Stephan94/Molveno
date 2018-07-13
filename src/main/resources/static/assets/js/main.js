@@ -45,6 +45,9 @@ $( document ).ready(function() {
                 }},
             ];
             break;
+        case "/addBooking":
+            api = 'http://localhost:8080/api/bookings'
+            break;
       }
 
 
@@ -81,5 +84,10 @@ $( document ).ready(function() {
   $("#deleteBtn").on( 'click', function (){
         $("#btnsubmit").attr('onclick', 'submitDelete("' + api +'");');
     });
+
+//       $("#submitNewBooking").on( 'click', function (){
+//            console.log(api);
+//           submitNewBooking(api);
+//      });
 
 });

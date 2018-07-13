@@ -11,7 +11,7 @@
 
                 <h3>Book a table</h3>
                 <p style="font-style: italic;">Book for more than 6 guests? Please call us at +39 061 586934.</p>
-                <form id="bookingForm" enctype='text/plain'>
+                <form id="modalForm" enctype='text/plain'>
                     First name:<br>
                     <input type='text' class="form-control" name='guestFirstName' id="guestFirstName"><br>
                     Last name: <br>
@@ -21,10 +21,10 @@
                     For how many people do you want to book a table?<br>
                     <input type='text' class="form-control" name='tableCapacity' id="tableCapacity" placeholder="Max. 6 guests"><br>
                     Date:<br>
-                    <input type='text' class="form-control" name='bookingDate' id="bookingDate"><br>
+                    <input type='date' class="form-control" name='bookingDate' id="bookingDate"><br>
                     Would you like to book for lunch or dinner?<br>
                     <input type='text' class="form-control" name='bookingTime' id="bookingTime" placeholder="e.g. 'lunch' or 'dinner'"><br>
-                    <button type="button" class="btn btn-success" id="submitNewBooking">Submit</button>
+                    <button type="button" class="btn btn-success"  onclick="submitNewBooking('http://localhost:8080/api/bookings');">Submit</button>
                     <!--<button type="button" class="btn btn-default" id="btnclose" onclick="deselect()" data-dismiss="modal">Close</button>-->
                     <a href="/" class="btn close-btn" role="button" >Cancel</a>
                 </form>

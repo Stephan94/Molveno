@@ -1,6 +1,8 @@
 function getData(api) {
+   //if(window.location.pathname == "/addBooking"){return;}
    //var api = "http://localhost:8080/api/tables";
    api = String(api);
+
    $.get(api, function(data){
        if (data){
             $("#dataTable").DataTable().clear();
@@ -204,22 +206,19 @@ function submitNew(api){
 
     switch(path){
 
-        case "/bookings":
+        case "/addBooking":
              JSONObjectInString =
             {
-                 "id": id,
                  "guest": {
-                     "id": guestid.value, //TODO remove
                      "firstName": guestFirstName.value,
                      "lastName": guestLastName.value,
                      "phoneNumber": phoneNumber.value
                  },
                  "table": {
-                     "id": tableNumber.value,
                      "capacity": tableCapacity.value
                  },
-                 "date": null,
-                 "time": null
+                 "date": bookingDate.value,
+                 "timeSlot": bookingTime.value
             }
 
         break;
@@ -233,11 +232,12 @@ function submitNew(api){
         break;
     }
 
+    console.log(JSONObjectInString);
 
    $.ajax({
        url: api,
        type:"post",
-       data: JSON.stringify(formData),
+       data: JSON.stringify(JSONObjectInString),
        contentType: "application/json; charset=utf-8",
        success: getData(api),
        error: function(error){
@@ -245,10 +245,61 @@ function submitNew(api){
        }
    });
 
+    //if(window.location.pathname == "/addBooking"){return;}
+
    deselect();
    $('#modal').modal('toggle');
 }
 
-$( function() {
-    $("#bookingDate").datepicker();
-} );
+function submitNewBooking(api){
+//   console.log("Formdata");
+//   var formData = $("#modalForm").serializeArray().reduce(function(result, object){ result[object.name] = object.value; return result}, {});
+//   console.log(formData);
+//   //var id = formData.id;
+//   for(var key in formData){
+//       if(formData[key] == "" || formData == null) delete formData[key];
+//   }
+
+   //console.log(JSON.stringify(formData));
+
+console.log(JSON.stringify({
+    "guest": {
+     "firstName": guestFirstName.value,
+     "lastName": guestLastName.value,
+     "phoneNumber": phoneNumber.value
+},
+    "table": {
+     "capacity": tableCapacity.value
+},
+    "date": bookingDate.value,
+    "timeSlot": bookingTime.value
+}));
+
+
+
+   $.ajax({
+       url: api,
+       type:"post",
+       data: JSON.stringify({
+        "guest": {
+         "firstName": guestFirstName.value,
+         "lastName": guestLastName.value,
+         "phoneNumber": phoneNumber.value
+        },
+        "table": {
+         "capacity": tableCapacity.value
+        },
+        "date": bookingDate.value,
+        "timeSlot": bookingTime.value
+       }),
+       contentType: "application/json; charset=utf-8",
+       success: alert("Your booking has been confirmed"),
+       error: function(error){
+           console.log(error);
+       }
+   });
+}
+
+//$( function() {
+//    $("#bookingDate").datepicker({dataFormat: "yyyy-MM-dd"});
+//} );
