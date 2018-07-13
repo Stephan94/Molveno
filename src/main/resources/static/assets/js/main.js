@@ -14,7 +14,7 @@ $( document ).ready(function() {
                { "data": "id" },
                { "data": "capacity" },
                {  "render": function(data, type, full){
-                   return '<a title="Delete this table" class="btn btn-default btn-sm"> <i class="fa fa-trash-alt"></i> </a>';
+                   return '<a title="Delete this table" class="btn btn-default btn-sm"> <i class="fa fa-pencil-alt"></i> </a>';
                } },
            ];
            break;
@@ -28,27 +28,34 @@ $( document ).ready(function() {
                { "data": "lastName" },
                { "data": "phoneNumber" },
                {  "render": function(data, type, full){
-                   return '<a title="Delete this table" <i class="fa fa-trash-alt"></i> </a>';
+                   return '<a title="Delete this table" <i class="fa fa-pencil-alt"></i> </a>';
                } },
            ];
            break;
-       
-        case "/bookings":
-            api = 'http://localhost:8080/api/bookings';
-            columns = [
-               { "data": "id" },
-               { "data": "table.id" },
-               { "data": "guest.lastName" },
-               { "data": "guest.phoneNumber" },
-               { "render": function(data, type, full){
-                   return '<a title="Delete this table" class="btn btn-default btn-sm"> <i class="fa fa-trash-alt"></i> </a>';
-                }},
-            ];
+
+            case "/bookings":
+                        api = 'http://localhost:8080/api/bookings';
+                        columns = [
+                           { "data": "id" },
+                           { "data": "table.id" },
+                           { "data": "date" },
+                           { "data": "timeSlot" },
+                           { "data": "guest.lastName" },
+                           { "data": "guest.phoneNumber" },
+                           { "render": function(data, type, full){
+                               return '<a title="Delete this table" class="btn btn-default btn-sm"> <i class="fa fa-pencil-alt"></i> </a>';
+                            }},
+                        ];
             break;
+
+
         case "/addBooking":
             api = 'http://localhost:8080/api/bookings'
             break;
       }
+
+    //    alert("api: " +api)
+    //    alert("columns: "+columns);
 
 
    $('#dataTable').DataTable( {

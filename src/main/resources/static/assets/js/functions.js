@@ -61,7 +61,7 @@ function fillModal(record){
            $("#phoneNumber").val(record.phoneNumber);
            break;
        case "/bookings":
-           $("#id").val(record.id);
+
            $("#guestid").val(record.guest.id);
            $("#guestFirstName").val(record.guest.firstName);
            $("#guestLastName").val(record.guest.lastName);
@@ -107,9 +107,7 @@ function submitEdit(id, api){
         case "/bookings":
              JSONObjectInString =
             {
-                 "id": id,
                  "guest": {
-                     "id": guestid.value, //TODO remove
                      "firstName": guestFirstName.value,
                      "lastName": guestLastName.value,
                      "phoneNumber": phoneNumber.value
