@@ -25,7 +25,7 @@ public class SecurityConfig {
                                 @Value("${api.password}") String pass) throws Exception{
 
         auth.inMemoryAuthentication()
-                .passwordEncoder(NoOpPasswordEncoder.getInstance()) // !!! new in Spring Boot 2... deprecated please fix ... 
+                .passwordEncoder(NoOpPasswordEncoder.getInstance()) // !!!
                 .withUser(user)
                 .password(pass)
                 .roles(WEBROLE);
@@ -39,6 +39,7 @@ public class SecurityConfig {
         protected void configure(HttpSecurity http) throws Exception {
             http.authorizeRequests().antMatchers("/api/**").permitAll();//hasRole(WEBROLE).and().httpBasic();
             http.authorizeRequests().antMatchers("/mainMenu/**").hasRole(WEBROLE).and().httpBasic();
+            http.authorizeRequests().antMatchers(HttpMethod.GET, "/**").permitAll();
 
             http.authorizeRequests().anyRequest().permitAll();
 
