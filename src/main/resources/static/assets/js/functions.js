@@ -201,43 +201,10 @@ function submitNew(api){
    console.log(JSON.stringify(formData));
 
 
-    var path = window.location.pathname;
-    var JSONObjectInString;
-
-    switch(path){
-
-        case "/addBooking":
-             JSONObjectInString =
-            {
-                 "guest": {
-                     "firstName": guestFirstName.value,
-                     "lastName": guestLastName.value,
-                     "phoneNumber": phoneNumber.value
-                 },
-                 "table": {
-                     "capacity": tableCapacity.value
-                 },
-                 "date": bookingDate.value,
-                 "timeSlot": bookingTime.value
-            }
-
-        break;
-
-        case "/tables":
-            JSONObjectInString = formData;
-        break;
-
-        case "/guests":
-            JSONObjectInString = formData;
-        break;
-    }
-
-    console.log(JSONObjectInString);
-
    $.ajax({
        url: api,
        type:"post",
-       data: JSON.stringify(JSONObjectInString),
+       data: JSON.stringify(formData),
        contentType: "application/json; charset=utf-8",
        success: getData(api),
        error: function(error){
@@ -303,3 +270,4 @@ console.log(JSON.stringify({
 //$( function() {
 //    $("#bookingDate").datepicker({dataFormat: "yyyy-MM-dd"});
 //} );
+
