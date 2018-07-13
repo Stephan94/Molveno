@@ -214,5 +214,5 @@ function submitNew(api){
 }
 
 $( function() {
-    $("#bookingDate").datepicker();
+    $("#bookingDate").datepicker({});
 } );
