@@ -214,5 +214,8 @@ function submitNew(api){
 }
 
 $( function() {
-    $("#bookingDate").datepicker();
+    $("#bookingDate").datepicker({
+        altFormat : 'yy-mm-dd',
+        format: 'yyyy-mm-dd'
+    });
 } );
