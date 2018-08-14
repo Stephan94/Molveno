@@ -11,8 +11,6 @@ public class MenuItem {
     private long id;
     private String name;
     private double salesPrice;
-    private double calculatedPrice;
-    private double profit = salesPrice - calculatedPrice;
 
 
 
@@ -22,14 +20,6 @@ public class MenuItem {
             joinColumns = @JoinColumn(name = "menuItem_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "ingredient_id", referencedColumnName = "id"))
     private List<Ingredient> ingredientList;
-
-
-    public double calculatePrice()
-    {
-        this.ingredientList.stream().forEach(i -> calculatedPrice += i.getPrice());
-        return calculatedPrice;
-
-    }
 
 
 
@@ -71,7 +61,6 @@ public class MenuItem {
         return this.id;
     }
 
-
     public double getSalesPrice() {
         return salesPrice;
     }
@@ -81,15 +70,11 @@ public class MenuItem {
     }
 
     public double getCalculatedPrice() {
-        return calculatePrice();
+        return getIngredientList().stream().mapToDouble(Ingredient::getPrice).sum();
     }
 
     public double getProfit() {
-        return profit;
-    }
-
-    public void setProfit(double profit) {
-        this.profit = profit;
+        return getSalesPrice() - getCalculatedPrice();
     }
 }
 
