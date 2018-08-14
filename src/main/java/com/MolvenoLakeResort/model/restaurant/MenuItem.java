@@ -1,6 +1,7 @@
 package com.MolvenoLakeResort.model.restaurant;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -11,6 +12,7 @@ public class MenuItem {
     private long id;
     private String name;
     private double salesPrice;
+    private MenuCategory menuCategory;
 
 
 
@@ -19,7 +21,7 @@ public class MenuItem {
     @JoinTable(name = "menuItem_ingredient",
             joinColumns = @JoinColumn(name = "menuItem_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "ingredient_id", referencedColumnName = "id"))
-    private List<Ingredient> ingredientList;
+    private List<Ingredient> ingredientList = new ArrayList<>();
 
 
 
@@ -40,6 +42,14 @@ public class MenuItem {
 
     // add getter and setter
 
+
+    public MenuCategory getMenuCategory() {
+        return menuCategory;
+    }
+
+    public void setMenuCategory(MenuCategory menuCategory) {
+        this.menuCategory = menuCategory;
+    }
 
     public List<Ingredient> getIngredientList() {
         return ingredientList;
@@ -71,6 +81,10 @@ public class MenuItem {
 
     public double getCalculatedPrice() {
         return getIngredientList().stream().mapToDouble(Ingredient::getPrice).sum();
+    }
+
+    public boolean isVegetarian() {
+        return getIngredientList().stream().allMatch(Ingredient::isVegetarian);
     }
 
     public double getProfit() {

@@ -1,15 +1,12 @@
 package com.MolvenoLakeResort.rest;
 
-import com.MolvenoLakeResort.model.restaurant.Ingredient;
 import com.MolvenoLakeResort.model.restaurant.MenuItem;
-import com.MolvenoLakeResort.model.restaurant.persistence.IngredientRepository;
 import com.MolvenoLakeResort.model.restaurant.persistence.MenuItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
 import java.util.Optional;
 
 @RestController
@@ -68,6 +65,7 @@ public class MenuItemController {
             menuItem.setName(update.getName());
             menuItem.setSalesPrice(update.getSalesPrice());
             menuItem.setIngredientList(update.getIngredientList());
+            menuItem.setMenuCategory(update.getMenuCategory());
 
 
             return new ResponseEntity<MenuItem>(this.menuItemRepository.save(menuItem), HttpStatus.OK);

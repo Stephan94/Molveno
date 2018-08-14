@@ -3,17 +3,19 @@ package com.MolvenoLakeResort.model.restaurant;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Ingredient {
+public class Ingredient implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private long id;
     private String name;
     private double price;
+    private boolean vegetarian;
 
     @ManyToMany(mappedBy = "ingredientList")
     @JsonIgnore // print geen tabel van menuItems
@@ -31,7 +33,13 @@ public class Ingredient {
     // add getter and setter
 
 
+    public boolean isVegetarian() {
+        return vegetarian;
+    }
 
+    public void setVegetarian(boolean vegetarian) {
+        this.vegetarian = vegetarian;
+    }
 
     public List<MenuItem> getMenuItemList() {
         return menuItemList;
