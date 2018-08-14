@@ -2,6 +2,7 @@ package com.MolvenoLakeResort.model.restaurant.persistence;
 
 import com.MolvenoLakeResort.model.restaurant.Ingredient;
 import com.MolvenoLakeResort.model.restaurant.MenuItem;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -10,59 +11,12 @@ import javax.persistence.ManyToMany;
 import java.util.*;
 
 @Repository
-public class MenuItemRepository {
+public interface MenuItemRepository extends CrudRepository<MenuItem, Long> {
 
-    private Map<Long, MenuItem> menuItems = new HashMap<>();
-    private static long lastId = 0;
+    Optional <MenuItem> findByName(String name);
 
-    @PostConstruct
-    public void preFillRecords(){
 
-        this.add(new MenuItem(1, 30, 24));
 
-        this.add(new MenuItem(2, 25, 20));
-        this.add(new MenuItem(3, 35, 29));
-        this.add(new MenuItem(4, 40, 34));
-        this.add(new MenuItem(5, 32, 28));
-    }
-
-    /*
-    @ManyToMany(mappedBy = "Menuitem", cascade = CascadeType.ALL)
-    private List<Ingredient> ingredientList = new ArrayList<>();
-
-    public void setIngredientSet(){
-        this.menuItems =
-    }
-    */
-
-    public void add(MenuItem newMenuItem) {
-        newMenuItem.setId(++lastId);
-        this.menuItems.put(newMenuItem.getId(), newMenuItem);
-    }
-
-    public void removeById(long id) {
-        this.menuItems.remove(id);
-    }
-
-    public MenuItem findById(long id) {
-        return this.menuItems.get(id);
-    }
-
-    public Collection<MenuItem> findAll() {
-        return this.menuItems.values();
-    }
-
-    public Map<Long, MenuItem> getMenuItems() {
-        return this.menuItems;
-    }
-
-    public MenuItem update(long id, MenuItem updated){
-
-        MenuItem target = this.findById(id);
-
-        target.setActualPrice(updated.getActualPrice());
-        target.setSuggestedPrice(updated.getSuggestedPrice());
-
-        return target;
-    }
 }
+
+

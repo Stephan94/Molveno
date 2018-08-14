@@ -1,19 +1,25 @@
 package com.MolvenoLakeResort.model.restaurant;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Ingredient {
+public class Ingredient implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private long id;
     private String name;
     private double price;
+    private boolean vegetarian;
+
+    @ManyToMany(mappedBy = "ingredientList")
+    @JsonIgnore // print geen tabel van menuItems
+    private List<MenuItem> menuItemList;
 
     public Ingredient(String name, long id, double price) {
         this.name = name;
@@ -25,6 +31,23 @@ public class Ingredient {
     }
 
     // add getter and setter
+
+
+    public boolean isVegetarian() {
+        return vegetarian;
+    }
+
+    public void setVegetarian(boolean vegetarian) {
+        this.vegetarian = vegetarian;
+    }
+
+    public List<MenuItem> getMenuItemList() {
+        return menuItemList;
+    }
+
+    public void setMenuItemList(List<MenuItem> menuItemList) {
+        this.menuItemList = menuItemList;
+    }
 
     public String getName() {
         return this.name;
