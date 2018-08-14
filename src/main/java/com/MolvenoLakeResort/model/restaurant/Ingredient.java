@@ -1,9 +1,9 @@
 package com.MolvenoLakeResort.model.restaurant;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,6 +15,10 @@ public class Ingredient {
     private String name;
     private double price;
 
+    @ManyToMany(mappedBy = "ingredientList")
+    @JsonIgnore // print geen tabel van menuItems
+    private List<MenuItem> menuItemList;
+
     public Ingredient(String name, long id, double price) {
         this.name = name;
         this.id = id;
@@ -25,6 +29,17 @@ public class Ingredient {
     }
 
     // add getter and setter
+
+
+
+
+    public List<MenuItem> getMenuItemList() {
+        return menuItemList;
+    }
+
+    public void setMenuItemList(List<MenuItem> menuItemList) {
+        this.menuItemList = menuItemList;
+    }
 
     public String getName() {
         return this.name;

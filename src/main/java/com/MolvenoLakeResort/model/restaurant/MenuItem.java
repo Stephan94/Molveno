@@ -1,9 +1,7 @@
 package com.MolvenoLakeResort.model.restaurant;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class MenuItem {
@@ -15,6 +13,17 @@ public class MenuItem {
     private double salesPrice;
     private double calculatedPrice;
     private double profit = salesPrice - calculatedPrice;
+
+
+
+
+    @ManyToMany
+    @JoinTable(name = "menuItem_ingredient",
+            joinColumns = @JoinColumn(name = "menuItem_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id", referencedColumnName = "id"))
+    private List<Ingredient> ingredientList;
+
+
 
 // add constructor
 
@@ -30,6 +39,11 @@ public class MenuItem {
 // Dit is een test!!!!
 
     // add getter and setter
+
+
+    public List<Ingredient> getIngredientList() {
+        return ingredientList;
+    }
 
 
     public String getName() {
