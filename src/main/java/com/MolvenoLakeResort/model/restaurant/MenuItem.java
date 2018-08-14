@@ -1,18 +1,30 @@
 package com.MolvenoLakeResort.model.restaurant;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class MenuItem {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private long id;
-    private double actualPrice;
-    private double suggestedPrice;
-
+    private String name;
+    private double salesPrice;
+    private double calculatedPrice;
+    private double profit = salesPrice - calculatedPrice;
 
 // add constructor
 
-    public MenuItem(long id, double actualPrice, double suggestedPrice) {
-        this.id = id;
-        this.actualPrice = actualPrice;
-        this.suggestedPrice = suggestedPrice;
+    public MenuItem() {
+
+    }
+
+    public MenuItem(String name, double salesPrice) {
+        this.name = name;
+        this.salesPrice = salesPrice;
     }
 
 // Dit is een test!!!!
@@ -20,28 +32,41 @@ public class MenuItem {
     // add getter and setter
 
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public long getId() {
         return this.id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+
+    public double getSalesPrice() {
+        return salesPrice;
     }
 
-    public double getActualPrice() {
-        return this.actualPrice;
+    public void setSalesPrice(double salesPrice) {
+        this.salesPrice = salesPrice;
     }
 
-    public void setActualPrice(double actualPrice) {
-        this.actualPrice = actualPrice;
+    public double getCalculatedPrice() {
+        return calculatedPrice;
     }
 
-    public double getSuggestedPrice() {
-        return this.suggestedPrice;
+    public void setCalculatedPrice(double calculatedPrice) {
+        this.calculatedPrice = calculatedPrice;
     }
 
-    public void setSuggestedPrice(double suggestedPrice) {
-        this.suggestedPrice = suggestedPrice;
+    public double getProfit() {
+        return profit;
+    }
+
+    public void setProfit(double profit) {
+        this.profit = profit;
     }
 }
 
