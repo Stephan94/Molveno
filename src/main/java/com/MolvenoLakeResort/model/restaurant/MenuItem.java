@@ -45,6 +45,9 @@ public class MenuItem {
         return ingredientList;
     }
 
+    public void setIngredientList(List<Ingredient> ingredientList) {
+        this.ingredientList = ingredientList;
+    }
 
     public String getName() {
         return name;
