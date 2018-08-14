@@ -24,6 +24,16 @@ public class MenuItem {
     private List<Ingredient> ingredientList;
 
 
+    public double calculatePrice()
+    {
+        this.ingredientList.stream().forEach(i -> calculatedPrice += i.getPrice());
+        return calculatedPrice;
+
+    }
+
+
+
+
 
 // add constructor
 
@@ -71,11 +81,7 @@ public class MenuItem {
     }
 
     public double getCalculatedPrice() {
-        return calculatedPrice;
-    }
-
-    public void setCalculatedPrice(double calculatedPrice) {
-        this.calculatedPrice = calculatedPrice;
+        return calculatePrice();
     }
 
     public double getProfit() {
