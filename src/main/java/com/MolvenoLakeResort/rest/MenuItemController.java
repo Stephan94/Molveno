@@ -66,6 +66,7 @@ public class MenuItemController {
             menuItem.setSalesPrice(update.getSalesPrice());
             menuItem.setIngredientList(update.getIngredientList());
             menuItem.setMenuCategory(update.getMenuCategory());
+            menuItem.setSubDishList(update.getSubDishList());
 
 
             return new ResponseEntity<MenuItem>(this.menuItemRepository.save(menuItem), HttpStatus.OK);

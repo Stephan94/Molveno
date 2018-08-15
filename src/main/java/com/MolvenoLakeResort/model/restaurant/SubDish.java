@@ -1,5 +1,7 @@
 package com.MolvenoLakeResort.model.restaurant;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,6 +21,12 @@ public class SubDish implements Serializable {
             joinColumns = @JoinColumn(name = "subDish_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "ingredient_id", referencedColumnName = "id"))
     private List<Ingredient> ingredientListForSubDish = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "subDishList")
+    @JsonIgnore // print geen tabel van subDishes
+    private List<MenuItem> menuItemList;
+
+
 
     public long getId() {
         return id;
@@ -40,9 +48,15 @@ public class SubDish implements Serializable {
         this.ingredientListForSubDish = ingredientListForSubDish;
     }
 
+    public List<MenuItem> getMenuItemList() {
+        return menuItemList;
+    }
 
+    public void setMenuItemList(List<MenuItem> menuItemList) {
+        this.menuItemList = menuItemList;
+    }
 
-//    public double getCalculatedPrice() {
+    //    public double getCalculatedPrice() {
 //        return getIngredientList().stream().mapToDouble(Ingredient::getPrice).sum();
 //    }
 
