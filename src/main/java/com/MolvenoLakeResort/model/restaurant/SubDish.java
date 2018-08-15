@@ -41,17 +41,14 @@ public class SubDish implements Serializable {
     }
 
 
-//    public double getSalesPrice() {
-//        return salesPrice;
-//    }
 
 //    public double getCalculatedPrice() {
 //        return getIngredientList().stream().mapToDouble(Ingredient::getPrice).sum();
 //    }
 
-//    public boolean isVegetarian() {
-//        return getIngredientList().stream().allMatch(Ingredient::isVegetarian);
-//    }
+    public boolean isVegetarian() {
+        return getIngredientListForSubDish().stream().allMatch(Ingredient::isVegetarian);
+    }
 //
 //    public double getProfit() {
 //        return getSalesPrice() - getCalculatedPrice();
