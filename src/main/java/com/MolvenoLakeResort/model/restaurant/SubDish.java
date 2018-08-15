@@ -1,10 +1,9 @@
 package com.MolvenoLakeResort.model.restaurant;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class SubDish implements Serializable {
@@ -13,6 +12,13 @@ public class SubDish implements Serializable {
     @Id
     private long id;
     private String name;
+
+
+    @ManyToMany
+    @JoinTable(name = "subDish_ingredient",
+            joinColumns = @JoinColumn(name = "subDish_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id", referencedColumnName = "id"))
+    private List<Ingredient> ingredientListForSubDish = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -26,15 +32,14 @@ public class SubDish implements Serializable {
         this.name = name;
     }
 
+    public List<Ingredient> getIngredientListForSubDish() {
+        return ingredientListForSubDish;
+    }
 
-//
-//    public List<Ingredient> getIngredientList() {
-//        return ingredientList;
-//    }
-//
-//    public void setIngredientList(List<Ingredient> ingredientList) {
-//        this.ingredientList = ingredientList;
-//    }
+    public void setIngredientListForSubDish(List<Ingredient> ingredientListForSubDish) {
+        this.ingredientListForSubDish = ingredientListForSubDish;
+    }
+
 
 //    public double getSalesPrice() {
 //        return salesPrice;
