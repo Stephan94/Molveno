@@ -84,7 +84,9 @@ public class MenuItem {
     }
 
     public double getCalculatedPrice() {
-        return getIngredientList().stream().mapToDouble(Ingredient::getPrice).sum();
+        double totalPriceIngredientList = getIngredientList().stream().mapToDouble(Ingredient::getPrice).sum();
+        double totalPriceSubDishList = getSubDishList().stream().flatMapToDouble(s -> s.getIngredientListForSubDish().stream().mapToDouble(i -> i.getPrice())).sum();
+        return totalPriceIngredientList + totalPriceSubDishList;
     }
 
     public boolean isVegetarian() {
